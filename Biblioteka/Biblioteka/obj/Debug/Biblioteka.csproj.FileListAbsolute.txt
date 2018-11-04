@@ -1,0 +1,9 @@
+D:\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+D:\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
+D:\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1.resources
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
