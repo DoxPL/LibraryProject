@@ -19,7 +19,14 @@ namespace Biblioteka
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Login loginForm = new Login();
+            loginForm.Show();
+        }
 
+        private void lbLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login loginForm = new Login();
+            loginForm.Show();
         }
     }
 }

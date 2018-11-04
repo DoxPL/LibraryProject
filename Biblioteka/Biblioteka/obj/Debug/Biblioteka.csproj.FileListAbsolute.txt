@@ -7,3 +7,4 @@ D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resource
 D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
 D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
 D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+D:\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
