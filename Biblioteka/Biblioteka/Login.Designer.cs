@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.tbPass2 = new System.Windows.Forms.TextBox();
-            this.tbEmail1 = new System.Windows.Forms.TextBox();
+            this.tbPass = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -47,19 +47,19 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tbPass2
+            // tbPass
             // 
-            this.tbPass2.Location = new System.Drawing.Point(10, 108);
-            this.tbPass2.Name = "tbPass2";
-            this.tbPass2.Size = new System.Drawing.Size(485, 22);
-            this.tbPass2.TabIndex = 2;
+            this.tbPass.Location = new System.Drawing.Point(10, 108);
+            this.tbPass.Name = "tbPass";
+            this.tbPass.Size = new System.Drawing.Size(485, 22);
+            this.tbPass.TabIndex = 2;
             // 
-            // tbEmail1
+            // tbEmail
             // 
-            this.tbEmail1.Location = new System.Drawing.Point(10, 52);
-            this.tbEmail1.Name = "tbEmail1";
-            this.tbEmail1.Size = new System.Drawing.Size(485, 22);
-            this.tbEmail1.TabIndex = 3;
+            this.tbEmail.Location = new System.Drawing.Point(10, 52);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(485, 22);
+            this.tbEmail.TabIndex = 3;
             // 
             // label2
             // 
@@ -83,8 +83,8 @@
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tbEmail1);
-            this.groupBox1.Controls.Add(this.tbPass2);
+            this.groupBox1.Controls.Add(this.tbEmail);
+            this.groupBox1.Controls.Add(this.tbPass);
             this.groupBox1.Location = new System.Drawing.Point(16, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(501, 157);
@@ -99,6 +99,8 @@
             this.ClientSize = new System.Drawing.Size(529, 243);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
             this.Text = "Formularz logowania";
             this.groupBox1.ResumeLayout(false);
@@ -110,8 +112,8 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbPass2;
-        private System.Windows.Forms.TextBox tbEmail1;
+        private System.Windows.Forms.TextBox tbPass;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;

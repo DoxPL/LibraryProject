@@ -12,6 +12,7 @@ namespace Biblioteka
 {
     public partial class Login : Form
     {
+        DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
         public Login()
         {
             InitializeComponent();
@@ -19,7 +20,11 @@ namespace Biblioteka
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Obsługa logowania
+            String mailInput = this.tbEmail.Text.ToString();
+            if (dbDataContext.Users.Where(x => x.Email == mailInput).Select(x => x.Email).Count() == 1)
+            {
+                MessageBox.Show("Ok");
+            }
             this.Close();
         }
     }
