@@ -33,5 +33,17 @@ namespace Biblioteka.Properties {
                 return ((string)(this["libraryDbConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=D:\\LIBRARYPROJECT\\LIBRARYDB.MD" +
+            "F;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertifica" +
+            "te=True")]
+        public string D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString {
+            get {
+                return ((string)(this["D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString"]));
+            }
+        }
     }
 }

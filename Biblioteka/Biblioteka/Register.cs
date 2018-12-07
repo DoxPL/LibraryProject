@@ -45,7 +45,7 @@ namespace Biblioteka
         private void btnRegister_Click(object sender, EventArgs e)
         {
             //Do poprawy
-            User user = new User();
+            Users user = new Users();
             user.Name = this.tbName.Text.ToString();
             user.Surname = this.tbSurname.Text.ToString();
             user.Street = this.tbStreet.Text.ToString();

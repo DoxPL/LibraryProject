@@ -18,6 +18,12 @@ namespace Biblioteka
             InitializeComponent();
             loadBooks();
             this.listBox1.Items.Add("Test");
+
+            comboBoxPublishers.Items.AddRange(dbDataContext.Publishers.ToArray());
+            comboBoxPublishers.DisplayMember = "Name";
+
+            listBoxTypes.Items.AddRange(dbDataContext.Types.ToArray());
+            listBoxTypes.DisplayMember = "Name";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,7 +46,7 @@ namespace Biblioteka
 
         private void loadBooks()
         {
-            foreach ( Book book in dbDataContext.Books.OrderBy(x => x.Title) )
+            foreach ( Books book in dbDataContext.Books.OrderBy(x => x.Title) )
             {            
                 this.listBox1.Items.Add(book.Title.ToString());
             }
@@ -48,15 +54,30 @@ namespace Biblioteka
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Book book = new Book();
-            book.Id = dbDataContext.Books.Count() + 4;
+            Books book = new Books();
             book.Title = this.textBox1.Text.ToString();
             book.Description = "Kurs programowania w języku C#";
             book.Year = 2018;
+            if (comboBoxPublishers.SelectedItem == null)
+            {
+                book.Publishers = new Publishers();
+                book.Publishers.Name = comboBoxPublishers.Text;
+            }
+            else
+            {
+                book.Publishers = (Publishers)comboBoxPublishers.SelectedItem;
+            }
+            
+            foreach(Types t in listBoxTypes.SelectedItems)
+            {
+                BookTypes bt = new BookTypes();
+                bt.Books = book;
+                bt.Types = t;
+            }
+
             dbDataContext.Books.InsertOnSubmit(book);
             dbDataContext.SubmitChanges();
             this.listBox1.Items.Add(book.Title.ToString());
-            //loadBooks();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
