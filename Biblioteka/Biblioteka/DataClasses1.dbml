@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="D:\LIBRARYPROJECT\LIBRARYDB.MDF" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\LIBRARYPROJECT\LIBRARYDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="Biblioteka.Properties.Settings" SettingsPropertyName="D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HouseNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Flat" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PostCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="AdminStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BookRental_Users" Member="BookRental" ThisKey="ID" OtherKey="ReaderID" Type="BookRental" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Writing" Member="Writings">
+    <Type Name="Writing">
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BookID" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Writing_Authors" Member="Authors" ThisKey="AuthorID" OtherKey="ID" Type="Authors" />
+      <Association Name="Writing_Books" Member="Books" ThisKey="BookID" OtherKey="ID" Type="Books" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Authors" Member="Authors">
+    <Type Name="Authors">
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Writing_Authors" Member="Writing" ThisKey="ID" OtherKey="AuthorID" Type="Writing" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Types" Member="Types">
+    <Type Name="Types">
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Types_BookTypes" Member="BookTypes" ThisKey="ID" OtherKey="TypeID" Type="BookTypes" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Books" Member="Books">
+    <Type Name="Books">
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Year" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="publisherId" Member="PublisherID" Storage="_publisherId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Books_BookTypes" Member="BookTypes" ThisKey="ID" OtherKey="BookID" Type="BookTypes" />
+      <Association Name="Publishers_Books" Member="Publishers" Storage="_Publisher" ThisKey="PublisherID" OtherKey="ID" Type="Publishers" IsForeignKey="true" />
+      <Association Name="BookCopy_Books" Member="BookCopy" ThisKey="ID" OtherKey="BookID" Type="BookCopy" IsForeignKey="true" />
+      <Association Name="Writing_Books" Member="Writing" ThisKey="ID" OtherKey="BookID" Type="Writing" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Publishers" Member="Publishers">
+    <Type Name="Publishers">
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Publishers_Books" Member="Books" ThisKey="ID" OtherKey="PublisherID" Type="Books" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookTypes" Member="BookTypes">
+    <Type Name="BookTypes">
+      <Column Name="BookId" Member="BookID" Storage="_BookId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TypeId" Member="TypeID" Storage="_TypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Books_BookTypes" Member="Books" Storage="_Book" ThisKey="BookID" OtherKey="ID" Type="Books" IsForeignKey="true" />
+      <Association Name="Types_BookTypes" Member="Types" Storage="_Type" ThisKey="TypeID" OtherKey="ID" Type="Types" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookRental" Member="BookRentals">
+    <Type Name="BookRental">
+      <Column Name="Id" Member="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="rentDate" Member="RentDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="returnDate" Member="ReturnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="readerId" Member="ReaderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="copyId" Member="CopyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BookRental_Users" Member="Users" ThisKey="ReaderID" OtherKey="ID" Type="Users" />
+      <Association Name="BookCopy_BookRental" Member="BookCopy" ThisKey="CopyID" OtherKey="ID" Type="BookCopy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BookCopies" Member="BookCopies">
+    <Type Name="BookCopy">
+      <Column Name="Id" Member="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="bookId" Member="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="BookCopy_BookRental" Member="BookRentals" ThisKey="ID" OtherKey="CopyID" Type="BookRental" />
+      <Association Name="BookCopy_Books" Member="Books" ThisKey="BookID" OtherKey="ID" Type="Books" />
+    </Type>
+  </Table>
+</Database>
