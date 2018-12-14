@@ -2,7 +2,7 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=D:\LIBRARYPROJECT\LIBRARYDB.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True" SettingsObjectName="Biblioteka.Properties.Settings" SettingsPropertyName="D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Users" Member="Users">
     <Type Name="Users">
-      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Street" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -85,8 +85,8 @@
     <Type Name="BookCopy">
       <Column Name="Id" Member="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="bookId" Member="BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="BookCopy_BookRental" Member="BookRentals" ThisKey="ID" OtherKey="CopyID" Type="BookRental" />
       <Association Name="BookCopy_Books" Member="Books" ThisKey="BookID" OtherKey="ID" Type="Books" />
+      <Association Name="BookCopy_BookRental" Member="BookRentals" ThisKey="ID" OtherKey="CopyID" Type="BookRental" />
     </Type>
   </Table>
 </Database>

@@ -21,11 +21,45 @@ namespace Biblioteka
         private void button1_Click(object sender, EventArgs e)
         {
             String mailInput = this.tbEmail.Text.ToString();
+            String pwdInput = this.tbPass.Text.ToString();
+
             if (dbDataContext.Users.Where(x => x.Email == mailInput).Select(x => x.Email).Count() == 1)
             {
-                MessageBox.Show("Ok");
+                string pwdHash = dbDataContext.Users.Where(x => x.Email == mailInput).Select(y => y.Password).First();
+                if (pwdHash == PasswordUtil.PasswordHash(pwdInput))
+                {
+                    this.Hide();
+                    MessageBox.Show("Zalogowano pomyślnie");
+                    Form1 form = new Form1();
+                    form.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Podane hasło jest nieprawidłowe");
+                }
             }
-            this.Close();
+            else
+            {
+                if (mailInput != "root")
+                    MessageBox.Show("Brak użytkownika w systemie");
+                else
+                {
+                    // Dodawanie użytkownika 'root' jeśli nie ma go w bazie danych
+                    Users root = new Users();
+                    root.Name = "Administrator";
+                    root.Surname = "Root";
+                    root.Email = "root";
+                    root.Password = PasswordUtil.PasswordHash(pwdInput);
+                    dbDataContext.Users.InsertOnSubmit(root);
+                    dbDataContext.SubmitChanges();
+                    MessageBox.Show("Konto administratora zostało zarejestrowane");
+                }
+            }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

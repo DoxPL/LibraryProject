@@ -230,7 +230,7 @@ namespace Biblioteka
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Id", Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Id", Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ID
 		{
 			get
@@ -1780,9 +1780,9 @@ namespace Biblioteka
 		
 		private int _BookID;
 		
-		private EntitySet<BookRental> _BookRentals;
-		
 		private EntitySet<Books> _Books;
+		
+		private EntitySet<BookRental> _BookRentals;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1796,8 +1796,8 @@ namespace Biblioteka
 		
 		public BookCopy()
 		{
-			this._BookRentals = new EntitySet<BookRental>(new Action<BookRental>(this.attach_BookRentals), new Action<BookRental>(this.detach_BookRentals));
 			this._Books = new EntitySet<Books>(new Action<Books>(this.attach_Books), new Action<Books>(this.detach_Books));
+			this._BookRentals = new EntitySet<BookRental>(new Action<BookRental>(this.attach_BookRentals), new Action<BookRental>(this.detach_BookRentals));
 			OnCreated();
 		}
 		
@@ -1841,19 +1841,6 @@ namespace Biblioteka
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BookCopy_BookRental", Storage="_BookRentals", ThisKey="ID", OtherKey="CopyID")]
-		public EntitySet<BookRental> BookRentals
-		{
-			get
-			{
-				return this._BookRentals;
-			}
-			set
-			{
-				this._BookRentals.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BookCopy_Books", Storage="_Books", ThisKey="BookID", OtherKey="ID")]
 		public EntitySet<Books> Books
 		{
@@ -1864,6 +1851,19 @@ namespace Biblioteka
 			set
 			{
 				this._Books.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="BookCopy_BookRental", Storage="_BookRentals", ThisKey="ID", OtherKey="CopyID")]
+		public EntitySet<BookRental> BookRentals
+		{
+			get
+			{
+				return this._BookRentals;
+			}
+			set
+			{
+				this._BookRentals.Assign(value);
 			}
 		}
 		
@@ -1887,18 +1887,6 @@ namespace Biblioteka
 			}
 		}
 		
-		private void attach_BookRentals(BookRental entity)
-		{
-			this.SendPropertyChanging();
-			entity.BookCopy = this;
-		}
-		
-		private void detach_BookRentals(BookRental entity)
-		{
-			this.SendPropertyChanging();
-			entity.BookCopy = null;
-		}
-		
 		private void attach_Books(Books entity)
 		{
 			this.SendPropertyChanging();
@@ -1906,6 +1894,18 @@ namespace Biblioteka
 		}
 		
 		private void detach_Books(Books entity)
+		{
+			this.SendPropertyChanging();
+			entity.BookCopy = null;
+		}
+		
+		private void attach_BookRentals(BookRental entity)
+		{
+			this.SendPropertyChanging();
+			entity.BookCopy = this;
+		}
+		
+		private void detach_BookRentals(BookRental entity)
 		{
 			this.SendPropertyChanging();
 			entity.BookCopy = null;

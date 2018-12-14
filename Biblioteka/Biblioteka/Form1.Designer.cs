@@ -127,7 +127,7 @@
             // 
             this.comboBoxPublishers.FormattingEnabled = true;
             this.comboBoxPublishers.Location = new System.Drawing.Point(356, 526);
-            this.comboBoxPublishers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxPublishers.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPublishers.Name = "comboBoxPublishers";
             this.comboBoxPublishers.Size = new System.Drawing.Size(160, 24);
             this.comboBoxPublishers.TabIndex = 6;
