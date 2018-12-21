@@ -26,8 +26,9 @@ namespace Biblioteka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\LibraryProject\\libraryDb.m" +
-            "df;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\libraryDb.mdf;Integrated S" +
+            "ecurity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;User I" +
+            "nstance=True")]
         public string libraryDbConnectionString {
             get {
                 return ((string)(this["libraryDbConnectionString"]));
@@ -37,9 +38,8 @@ namespace Biblioteka.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=D:\\LIBRARYPROJECT\\LIBRARYDB.MD" +
-            "F;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertifica" +
-            "te=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\libraryDb.mdf;Integrated S" +
+            "ecurity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;")]
         public string D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString {
             get {
                 return ((string)(this["D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString"]));

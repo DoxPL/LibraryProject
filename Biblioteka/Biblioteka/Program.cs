@@ -8,6 +8,7 @@ namespace Biblioteka
 {
     static class Program
     {
+        public static Users loggedUser = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

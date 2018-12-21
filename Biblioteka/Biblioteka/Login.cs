@@ -20,6 +20,11 @@ namespace Biblioteka
 
         private void button1_Click(object sender, EventArgs e)
         {
+            login();
+        }
+
+        private void login()
+        {
             String mailInput = this.tbEmail.Text.ToString();
             String pwdInput = this.tbPass.Text.ToString();
 
@@ -30,6 +35,7 @@ namespace Biblioteka
                 {
                     this.Hide();
                     MessageBox.Show("Zalogowano pomyślnie");
+                    Program.loggedUser = dbDataContext.Users.Where(x => x.Email == mailInput).First();
                     Form1 form = new Form1();
                     form.Show();
                 }
@@ -60,6 +66,14 @@ namespace Biblioteka
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(13))
+            {
+                login();
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Biblioteka
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+            this.lbUser.Text += (Program.loggedUser.Name + " " + Program.loggedUser.Surname);
         }
 
         private void loadBooks()
@@ -95,5 +95,42 @@ namespace Biblioteka
         {
 
         }
+
+        private void lbAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (string bookTitle in listBox1.SelectedItems)
+            {
+                Books book = dbDataContext.Books.Where(x => x.Title == bookTitle).First();
+                BookRental rental = new BookRental();
+                rental.ReaderID = Program.loggedUser.ID;
+                rental.RentDate = DateTime.Today;
+                rental.CopyID = 1;
+                dbDataContext.BookRentals.InsertOnSubmit(rental);
+                dbDataContext.SubmitChanges();
+                MessageBox.Show(book.Title);
+                //MessageBox.Show("Wolna kopia: " + getFreeCopy(book.ID));
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new Orders().Show();
+        }
+
+        private int getFreeCopy(int bookID)
+        {
+            //Zwraca pierwszy znaleziony wolny egzemplarz książki
+            int copyID = -1;
+            if (dbDataContext.BookCopies.Where(x => x.BookID == bookID).Where(y => y.Free == 1).Count() > 0)
+                return dbDataContext.BookCopies.Where(x => x.BookID == bookID).Where(y => y.Free == 1).Select(z => z.ID).First();
+            return copyID;
+        }
+
+
     }
 }

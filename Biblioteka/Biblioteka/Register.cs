@@ -55,6 +55,8 @@ namespace Biblioteka
                 errList.Add("Podana ulica jest nieprawidłowa");
             else if (!Validation.validPhoneNumber(this.tbPhone.Text.ToString()))
                 errList.Add("Nieprawidłowy numer telefonu");
+            else if (!Validation.validName(this.tbName.Text.ToString()))
+                errList.Add("Błędna nazwa");
 
             if (errList.Count == 0)
             {

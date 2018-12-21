@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbLogin = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.lbAdmin = new System.Windows.Forms.LinkLabel();
@@ -37,21 +36,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.comboBoxPublishers = new System.Windows.Forms.ComboBox();
             this.listBoxTypes = new System.Windows.Forms.ListBox();
+            this.lbUser = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lbLogin
-            // 
-            this.lbLogin.AutoSize = true;
-            this.lbLogin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbLogin.Location = new System.Drawing.Point(993, 0);
-            this.lbLogin.Name = "lbLogin";
-            this.lbLogin.Padding = new System.Windows.Forms.Padding(0, 2, 11, 0);
-            this.lbLogin.Size = new System.Drawing.Size(66, 19);
-            this.lbLogin.TabIndex = 0;
-            this.lbLogin.TabStop = true;
-            this.lbLogin.Text = "Zaloguj";
-            this.lbLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbLogin_LinkClicked);
             // 
             // groupBox1
             // 
@@ -75,6 +64,7 @@
             this.listBox1.Location = new System.Drawing.Point(5, 21);
             this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBox1.Size = new System.Drawing.Size(1023, 452);
             this.listBox1.TabIndex = 1;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
@@ -83,7 +73,7 @@
             // 
             this.lbAdmin.AutoSize = true;
             this.lbAdmin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbAdmin.Location = new System.Drawing.Point(837, 0);
+            this.lbAdmin.Location = new System.Drawing.Point(903, 0);
             this.lbAdmin.Name = "lbAdmin";
             this.lbAdmin.Padding = new System.Windows.Forms.Padding(0, 2, 11, 0);
             this.lbAdmin.Size = new System.Drawing.Size(156, 19);
@@ -91,6 +81,7 @@
             this.lbAdmin.TabStop = true;
             this.lbAdmin.Text = "Panel administracyjny";
             this.lbAdmin.Visible = false;
+            this.lbAdmin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbAdmin_LinkClicked);
             // 
             // button1
             // 
@@ -140,14 +131,46 @@
             this.listBoxTypes.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxTypes.Name = "listBoxTypes";
             this.listBoxTypes.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.listBoxTypes.Size = new System.Drawing.Size(159, 20);
+            this.listBoxTypes.Size = new System.Drawing.Size(70, 20);
             this.listBoxTypes.TabIndex = 7;
+            // 
+            // lbUser
+            // 
+            this.lbUser.AutoSize = true;
+            this.lbUser.Location = new System.Drawing.Point(799, 526);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(123, 17);
+            this.lbUser.TabIndex = 8;
+            this.lbUser.Text = "Zalogowano jako: ";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(700, 512);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(93, 45);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Zamów wybrane";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(601, 512);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 45);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "Wypożyczenia";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 571);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.lbUser);
             this.Controls.Add(this.listBoxTypes);
             this.Controls.Add(this.comboBoxPublishers);
             this.Controls.Add(this.button2);
@@ -155,7 +178,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbAdmin);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lbLogin);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Biblioteka";
@@ -167,8 +189,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.LinkLabel lbLogin;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel lbAdmin;
         private System.Windows.Forms.Button button1;
@@ -177,6 +197,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBoxPublishers;
         private System.Windows.Forms.ListBox listBoxTypes;
+        private System.Windows.Forms.Label lbUser;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

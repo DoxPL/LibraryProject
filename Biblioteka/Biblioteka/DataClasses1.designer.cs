@@ -968,6 +968,8 @@ namespace Biblioteka
 		
 		private int _publisherId;
 		
+		private string _ImageLocation;
+		
 		private EntitySet<BookTypes> _BookTypes;
 		
 		private EntityRef<Publishers> _Publisher;
@@ -990,6 +992,8 @@ namespace Biblioteka
     partial void OnYearChanged();
     partial void OnPublisherIDChanging(int value);
     partial void OnPublisherIDChanged();
+    partial void OnImageLocationChanging(string value);
+    partial void OnImageLocationChanged();
     #endregion
 		
 		public Books()
@@ -1097,6 +1101,26 @@ namespace Biblioteka
 					this._publisherId = value;
 					this.SendPropertyChanged("PublisherID");
 					this.OnPublisherIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageLocation", CanBeNull=false)]
+		public string ImageLocation
+		{
+			get
+			{
+				return this._ImageLocation;
+			}
+			set
+			{
+				if ((this._ImageLocation != value))
+				{
+					this.OnImageLocationChanging(value);
+					this.SendPropertyChanging();
+					this._ImageLocation = value;
+					this.SendPropertyChanged("ImageLocation");
+					this.OnImageLocationChanged();
 				}
 			}
 		}
@@ -1590,7 +1614,7 @@ namespace Biblioteka
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Id", Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Id", Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ID
 		{
 			get
@@ -1780,6 +1804,8 @@ namespace Biblioteka
 		
 		private int _BookID;
 		
+		private int _Free;
+		
 		private EntitySet<Books> _Books;
 		
 		private EntitySet<BookRental> _BookRentals;
@@ -1792,6 +1818,8 @@ namespace Biblioteka
     partial void OnIDChanged();
     partial void OnBookIDChanging(int value);
     partial void OnBookIDChanged();
+    partial void OnFreeChanging(int value);
+    partial void OnFreeChanged();
     #endregion
 		
 		public BookCopy()
@@ -1837,6 +1865,26 @@ namespace Biblioteka
 					this._BookID = value;
 					this.SendPropertyChanged("BookID");
 					this.OnBookIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Free")]
+		public int Free
+		{
+			get
+			{
+				return this._Free;
+			}
+			set
+			{
+				if ((this._Free != value))
+				{
+					this.OnFreeChanging(value);
+					this.SendPropertyChanging();
+					this._Free = value;
+					this.SendPropertyChanged("Free");
+					this.OnFreeChanged();
 				}
 			}
 		}

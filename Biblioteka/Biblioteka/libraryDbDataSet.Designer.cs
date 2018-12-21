@@ -48,8 +48,6 @@ namespace Biblioteka {
         
         private global::System.Data.DataRelation relationWriting_Authors;
         
-        private global::System.Data.DataRelation relationCopy_BookRental;
-        
         private global::System.Data.DataRelation relationCopy_Books;
         
         private global::System.Data.DataRelation relationBookRental_Users;
@@ -57,6 +55,8 @@ namespace Biblioteka {
         private global::System.Data.DataRelation relationBookTypes_Types;
         
         private global::System.Data.DataRelation relationBookTypes_Books;
+        
+        private global::System.Data.DataRelation relationBookRental_BookCopies;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -405,11 +405,11 @@ namespace Biblioteka {
             this.relationBooks_Publishers = this.Relations["Books_Publishers"];
             this.relationWriting_Books = this.Relations["Writing_Books"];
             this.relationWriting_Authors = this.Relations["Writing_Authors"];
-            this.relationCopy_BookRental = this.Relations["Copy_BookRental"];
             this.relationCopy_Books = this.Relations["Copy_Books"];
             this.relationBookRental_Users = this.Relations["BookRental_Users"];
             this.relationBookTypes_Types = this.Relations["BookTypes_Types"];
             this.relationBookTypes_Books = this.Relations["BookTypes_Books"];
+            this.relationBookRental_BookCopies = this.Relations["BookRental_BookCopies"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -450,10 +450,6 @@ namespace Biblioteka {
                         this.tableWriting.AuthorIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableAuthors.IDColumn}, false);
             this.Relations.Add(this.relationWriting_Authors);
-            this.relationCopy_BookRental = new global::System.Data.DataRelation("Copy_BookRental", new global::System.Data.DataColumn[] {
-                        this.tableBookCopies.BookRentIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableBookRental.IDColumn}, false);
-            this.Relations.Add(this.relationCopy_BookRental);
             this.relationCopy_Books = new global::System.Data.DataRelation("Copy_Books", new global::System.Data.DataColumn[] {
                         this.tableBookCopies.BookIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableBooks.IDColumn}, false);
@@ -470,6 +466,10 @@ namespace Biblioteka {
                         this.tableBookTypes.BookIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableBooks.IDColumn}, false);
             this.Relations.Add(this.relationBookTypes_Books);
+            this.relationBookRental_BookCopies = new global::System.Data.DataRelation("BookRental_BookCopies", new global::System.Data.DataColumn[] {
+                        this.tableBookRental.CopyIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableBookCopies.IDColumn}, false);
+            this.Relations.Add(this.relationBookRental_BookCopies);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -625,6 +625,8 @@ namespace Biblioteka {
             
             private global::System.Data.DataColumn columnPublisherID;
             
+            private global::System.Data.DataColumn columnImageLocation;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BooksDataTable() {
@@ -700,6 +702,14 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ImageLocationColumn {
+                get {
+                    return this.columnImageLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -735,14 +745,15 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BooksRow AddBooksRow(string Title, string Description, int Year, int PublisherID) {
+            public BooksRow AddBooksRow(string Title, string Description, int Year, int PublisherID, string ImageLocation) {
                 BooksRow rowBooksRow = ((BooksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
                         Description,
                         Year,
-                        PublisherID};
+                        PublisherID,
+                        ImageLocation};
                 rowBooksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBooksRow);
                 return rowBooksRow;
@@ -770,6 +781,7 @@ namespace Biblioteka {
                 this.columnDescription = base.Columns["Description"];
                 this.columnYear = base.Columns["Year"];
                 this.columnPublisherID = base.Columns["PublisherID"];
+                this.columnImageLocation = base.Columns["ImageLocation"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -785,6 +797,8 @@ namespace Biblioteka {
                 base.Columns.Add(this.columnYear);
                 this.columnPublisherID = new global::System.Data.DataColumn("PublisherID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPublisherID);
+                this.columnImageLocation = new global::System.Data.DataColumn("ImageLocation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImageLocation);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, false));
                 this.columnID.AutoIncrement = true;
@@ -1215,6 +1229,8 @@ namespace Biblioteka {
             
             private global::System.Data.DataColumn columnUserID;
             
+            private global::System.Data.DataColumn columnCopyID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BookRentalDataTable() {
@@ -1282,6 +1298,14 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CopyIDColumn {
+                get {
+                    return this.columnCopyID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1317,16 +1341,14 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BookRentalRow AddBookRentalRow(BookCopiesRow parentBookCopiesRowByCopy_BookRental, System.DateTime RentDate, System.DateTime ReturnDate, int UserID) {
+            public BookRentalRow AddBookRentalRow(int ID, System.DateTime RentDate, System.DateTime ReturnDate, int UserID, int CopyID) {
                 BookRentalRow rowBookRentalRow = ((BookRentalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        ID,
                         RentDate,
                         ReturnDate,
-                        UserID};
-                if ((parentBookCopiesRowByCopy_BookRental != null)) {
-                    columnValuesArray[0] = parentBookCopiesRowByCopy_BookRental[0];
-                }
+                        UserID,
+                        CopyID};
                 rowBookRentalRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBookRentalRow);
                 return rowBookRentalRow;
@@ -1360,6 +1382,7 @@ namespace Biblioteka {
                 this.columnRentDate = base.Columns["RentDate"];
                 this.columnReturnDate = base.Columns["ReturnDate"];
                 this.columnUserID = base.Columns["UserID"];
+                this.columnCopyID = base.Columns["CopyID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1373,6 +1396,8 @@ namespace Biblioteka {
                 base.Columns.Add(this.columnReturnDate);
                 this.columnUserID = new global::System.Data.DataColumn("UserID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserID);
+                this.columnCopyID = new global::System.Data.DataColumn("CopyID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCopyID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -2095,11 +2120,11 @@ namespace Biblioteka {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class BookCopiesDataTable : global::System.Data.TypedTableBase<BookCopiesRow> {
             
-            private global::System.Data.DataColumn columnBookRentID;
-            
             private global::System.Data.DataColumn columnBookID;
             
             private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnFree;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2136,14 +2161,6 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BookRentIDColumn {
-                get {
-                    return this.columnBookRentID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn BookIDColumn {
                 get {
                     return this.columnBookID;
@@ -2155,6 +2172,14 @@ namespace Biblioteka {
             public global::System.Data.DataColumn IDColumn {
                 get {
                     return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FreeColumn {
+                get {
+                    return this.columnFree;
                 }
             }
             
@@ -2195,12 +2220,15 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BookCopiesRow AddBookCopiesRow(int BookRentID, int BookID, int ID) {
+            public BookCopiesRow AddBookCopiesRow(int BookID, BookRentalRow parentBookRentalRowByBookRental_BookCopies, int Free) {
                 BookCopiesRow rowBookCopiesRow = ((BookCopiesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        BookRentID,
                         BookID,
-                        ID};
+                        null,
+                        Free};
+                if ((parentBookRentalRowByBookRental_BookCopies != null)) {
+                    columnValuesArray[1] = parentBookRentalRowByBookRental_BookCopies[4];
+                }
                 rowBookCopiesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBookCopiesRow);
                 return rowBookCopiesRow;
@@ -2230,24 +2258,22 @@ namespace Biblioteka {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnBookRentID = base.Columns["BookRentID"];
                 this.columnBookID = base.Columns["BookID"];
                 this.columnID = base.Columns["ID"];
+                this.columnFree = base.Columns["Free"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnBookRentID = new global::System.Data.DataColumn("BookRentID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBookRentID);
                 this.columnBookID = new global::System.Data.DataColumn("BookID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBookID);
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
+                this.columnFree = new global::System.Data.DataColumn("Free", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFree);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("BookCopyKey1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
-                this.columnBookRentID.AllowDBNull = false;
-                this.columnBookRentID.Caption = "Id";
                 this.columnBookID.AllowDBNull = false;
                 this.columnBookID.Caption = "bookId";
                 this.columnID.AllowDBNull = false;
@@ -3450,6 +3476,22 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ImageLocation {
+                get {
+                    try {
+                        return ((string)(this[this.tableBooks.ImageLocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImageLocation\' in table \'Books\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBooks.ImageLocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public WritingRow WritingRow {
                 get {
                     return ((WritingRow)(this.GetParentRow(this.Table.ParentRelations["Writing_Books"])));
@@ -3491,6 +3533,18 @@ namespace Biblioteka {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescriptionNull() {
                 this[this.tableBooks.DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsImageLocationNull() {
+                return this.IsNull(this.tableBooks.ImageLocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetImageLocationNull() {
+                this[this.tableBooks.ImageLocationColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3618,12 +3672,17 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BookCopiesRow BookCopiesRow {
+            public int CopyID {
                 get {
-                    return ((BookCopiesRow)(this.GetParentRow(this.Table.ParentRelations["Copy_BookRental"])));
+                    try {
+                        return ((int)(this[this.tableBookRental.CopyIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CopyID\' in table \'BookRental\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Copy_BookRental"]);
+                    this[this.tableBookRental.CopyIDColumn] = value;
                 }
             }
             
@@ -3641,12 +3700,35 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCopyIDNull() {
+                return this.IsNull(this.tableBookRental.CopyIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCopyIDNull() {
+                this[this.tableBookRental.CopyIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public UsersRow[] GetUsersRows() {
                 if ((this.Table.ChildRelations["BookRental_Users"] == null)) {
                     return new UsersRow[0];
                 }
                 else {
                     return ((UsersRow[])(base.GetChildRows(this.Table.ChildRelations["BookRental_Users"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BookCopiesRow[] GetBookCopiesRows() {
+                if ((this.Table.ChildRelations["BookRental_BookCopies"] == null)) {
+                    return new BookCopiesRow[0];
+                }
+                else {
+                    return ((BookCopiesRow[])(base.GetChildRows(this.Table.ChildRelations["BookRental_BookCopies"])));
                 }
             }
         }
@@ -3796,17 +3878,6 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int BookRentID {
-                get {
-                    return ((int)(this[this.tableBookCopies.BookRentIDColumn]));
-                }
-                set {
-                    this[this.tableBookCopies.BookRentIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int BookID {
                 get {
                     return ((int)(this[this.tableBookCopies.BookIDColumn]));
@@ -3829,13 +3900,41 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BookRentalRow[] GetBookRentalRows() {
-                if ((this.Table.ChildRelations["Copy_BookRental"] == null)) {
-                    return new BookRentalRow[0];
+            public int Free {
+                get {
+                    try {
+                        return ((int)(this[this.tableBookCopies.FreeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Free\' in table \'BookCopies\' is DBNull.", e);
+                    }
                 }
-                else {
-                    return ((BookRentalRow[])(base.GetChildRows(this.Table.ChildRelations["Copy_BookRental"])));
+                set {
+                    this[this.tableBookCopies.FreeColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public BookRentalRow BookRentalRow {
+                get {
+                    return ((BookRentalRow)(this.GetParentRow(this.Table.ParentRelations["BookRental_BookCopies"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["BookRental_BookCopies"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFreeNull() {
+                return this.IsNull(this.tableBookCopies.FreeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFreeNull() {
+                this[this.tableBookCopies.FreeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6173,7 +6272,6 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "BookCopies";
-            tableMapping.ColumnMappings.Add("Id", "BookRentID");
             tableMapping.ColumnMappings.Add("bookId", "BookID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
@@ -6185,10 +6283,8 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bookId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Copy] ([Id], [bookId]) VALUES (@Id, @bookId);\nSELECT Id, bookI" +
-                "d FROM Copy WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Copy] ([bookId]) VALUES (@bookId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -6215,7 +6311,7 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, bookId FROM dbo.Copy";
+            this._commandCollection[0].CommandText = "SELECT bookId FROM Copy";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6299,9 +6395,8 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, int bookId) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(bookId));
+        public virtual int Insert(int bookId) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(bookId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7755,6 +7850,15 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(libraryDbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._bookRentalTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.BookRental.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._bookRentalTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._writingTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Writing.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -7788,15 +7892,6 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._booksTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._bookRentalTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.BookRental.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bookRentalTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7846,6 +7941,14 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(libraryDbDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._bookRentalTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.BookRental.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._bookRentalTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._writingTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Writing.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -7875,14 +7978,6 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._booksTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._bookRentalTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.BookRental.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bookRentalTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7960,14 +8055,6 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bookRentalTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.BookRental.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bookRentalTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._booksTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Books.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7997,6 +8084,14 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._writingTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._bookRentalTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.BookRental.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._bookRentalTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

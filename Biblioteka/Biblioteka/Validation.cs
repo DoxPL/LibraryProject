@@ -39,5 +39,11 @@ namespace Biblioteka
             string regExp = @"^([0-9]{3,25})$";
             return Regex.IsMatch(phoneNum, regExp);
         }
+
+        public static bool validName(string name)
+        {
+            string regExp = @"^([A-Za-z]+ {0,1})([A-Za-z]+ {0,1})*$";
+            return Regex.IsMatch(name, regExp);
+        }
     }
 }

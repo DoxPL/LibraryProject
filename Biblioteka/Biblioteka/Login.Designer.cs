@@ -45,7 +45,7 @@
             this.button1.Location = new System.Drawing.Point(23, 241);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(510, 38);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Zaloguj";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -57,7 +57,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
             this.tbPass.Size = new System.Drawing.Size(510, 43);
-            this.tbPass.TabIndex = 2;
+            this.tbPass.TabIndex = 1;
             // 
             // tbEmail
             // 
@@ -65,7 +65,7 @@
             this.tbEmail.Location = new System.Drawing.Point(25, 37);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(510, 43);
-            this.tbEmail.TabIndex = 3;
+            this.tbEmail.TabIndex = 0;
             // 
             // label1
             // 
@@ -103,7 +103,7 @@
             this.panel1.Location = new System.Drawing.Point(178, 94);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(559, 314);
-            this.panel1.TabIndex = 6;
+            this.panel1.TabIndex = 0;
             // 
             // Login
             // 
@@ -118,6 +118,7 @@
             this.Name = "Login";
             this.Text = "Formularz logowania";
             this.Load += new System.EventHandler(this.Login_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
