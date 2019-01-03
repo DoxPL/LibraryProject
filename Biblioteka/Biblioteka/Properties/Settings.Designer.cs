@@ -27,8 +27,7 @@ namespace Biblioteka.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(localdb)\\MSSQLLocalDB;AttachDbFilename=C:\\libraryDb.mdf;Integrated S" +
-            "ecurity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;User I" +
-            "nstance=True")]
+            "ecurity=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;")]
         public string libraryDbConnectionString {
             get {
                 return ((string)(this["libraryDbConnectionString"]));

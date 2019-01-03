@@ -70,3 +70,15 @@ C:\Users\Dox\Desktop\Biblioteka\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1
 C:\Users\Dox\Desktop\Biblioteka\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
 C:\Users\Dox\Desktop\Biblioteka\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
 C:\Users\Dox\Desktop\Biblioteka\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Orders.resources
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Register.resources
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1.resources
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+C:\Users\Dox\Desktop\zz\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb

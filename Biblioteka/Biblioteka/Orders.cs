@@ -25,23 +25,49 @@ namespace Biblioteka
 
         private void loadOrders()
         {
-            foreach (BookRental bookRental in dbDataContext.BookRentals.OrderBy(x => x.RentDate))
+            DateTime today = DateTime.Today;
+            foreach (BookRental bookRental in dbDataContext.BookRentals.OrderByDescending(x => x.ID))
             {
                 Users user = dbDataContext.Users.Where(x => x.ID == bookRental.ReaderID).First();
                 BookCopy bookCopy = dbDataContext.BookCopies.Where(x => x.ID == bookRental.CopyID).First();
                 Books book = dbDataContext.Books.Where(x => x.ID == bookCopy.BookID).First(); //name
-                this.lOrders.Items.Add(
-                        (user.Name + " " + user.Surname) + "\t" +
-                        bookRental.RentDate + "\t" +
-                        bookRental.ReturnDate + "\t" +
-                        book.Title
-                    );
+                DateTime returnDate = bookRental.RentDate.AddDays(30);
+                bool status = (returnDate.CompareTo(today) > 0);
+                var item = new ListViewItem(new[]
+                    {
+                        bookRental.ID.ToString(),
+                        (user.Name + " " + user.Surname).ToString(),
+                        bookRental.RentDate.ToString(),
+                        returnDate.ToString(),
+                        book.Title.ToString(),
+                        status ? "Wypożyczona" : "Nieoddana"
+                    }
+                );
+                this.lvItems.Items.Add(item);
             }
+            this.lvItems.ListViewItemSorter = new LvComparer(0);
+            //this.lvItems.Sorting = SortOrder.Descending;
         }
+
 
         private void lOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lvItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach(ListViewItem item in lvItems.Items)
+            {
+                if (item.Checked)
+                    item.Remove();
+                //usuń z bazy danych
+            }
         }
     }
 }

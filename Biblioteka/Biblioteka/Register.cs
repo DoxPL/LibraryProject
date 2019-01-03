@@ -68,7 +68,10 @@ namespace Biblioteka
                 user.PostCode = this.tbPostCode.Text.ToString();
                 user.Email = this.tbMail.Text.ToString();
                 if (!rndPassword)
-                    user.Password = PasswordUtil.PasswordHash(this.tbPassword.ToString());
+                {
+                    user.Password = PasswordUtil.PasswordHash(this.tbPassword.Text.ToString());
+                    MessageBox.Show(user.Password);
+                }
                 else
                 {
                     this.password = PasswordUtil.GeneratePassword(10);
