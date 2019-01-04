@@ -104,5 +104,18 @@ namespace Biblioteka
 
         }
 
+        private void Register_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść?", "Zakończ", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
+            if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

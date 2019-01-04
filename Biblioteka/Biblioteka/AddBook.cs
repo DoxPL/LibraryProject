@@ -72,5 +72,10 @@ namespace Biblioteka
                 e.Cancel = true;
             }
         }
+
+        private void AddBook_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

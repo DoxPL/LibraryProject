@@ -131,6 +131,10 @@ namespace Biblioteka
             return copyID;
         }
 
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AddBook bookForm = new AddBook();
+            bookForm.Show();
+        }
     }
 }
