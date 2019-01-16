@@ -108,8 +108,10 @@ namespace Biblioteka
                 Books book = dbDataContext.Books.Where(x => x.Title == bookTitle).First();
                 BookRental rental = new BookRental();
                 rental.ReaderID = Program.loggedUser.ID;
-                rental.RentDate = DateTime.Today;
+                rental.RentDate = DateTime.Now;
+                rental.ReturnDate = DateTime.Now.AddDays(30);
                 rental.CopyID = 1;
+                rental.status = 1;
                 dbDataContext.BookRentals.InsertOnSubmit(rental);
                 dbDataContext.SubmitChanges();
                 MessageBox.Show(book.Title);

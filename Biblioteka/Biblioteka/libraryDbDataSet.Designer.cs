@@ -1231,6 +1231,8 @@ namespace Biblioteka {
             
             private global::System.Data.DataColumn columnCopyID;
             
+            private global::System.Data.DataColumn columnstatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BookRentalDataTable() {
@@ -1306,6 +1308,14 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn statusColumn {
+                get {
+                    return this.columnstatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1341,14 +1351,15 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BookRentalRow AddBookRentalRow(int ID, System.DateTime RentDate, System.DateTime ReturnDate, int UserID, int CopyID) {
+            public BookRentalRow AddBookRentalRow(int ID, System.DateTime RentDate, System.DateTime ReturnDate, int UserID, int CopyID, int status) {
                 BookRentalRow rowBookRentalRow = ((BookRentalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         RentDate,
                         ReturnDate,
                         UserID,
-                        CopyID};
+                        CopyID,
+                        status};
                 rowBookRentalRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBookRentalRow);
                 return rowBookRentalRow;
@@ -1383,6 +1394,7 @@ namespace Biblioteka {
                 this.columnReturnDate = base.Columns["ReturnDate"];
                 this.columnUserID = base.Columns["UserID"];
                 this.columnCopyID = base.Columns["CopyID"];
+                this.columnstatus = base.Columns["status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1398,6 +1410,8 @@ namespace Biblioteka {
                 base.Columns.Add(this.columnUserID);
                 this.columnCopyID = new global::System.Data.DataColumn("CopyID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCopyID);
+                this.columnstatus = new global::System.Data.DataColumn("status", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstatus);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -3688,6 +3702,22 @@ namespace Biblioteka {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int status {
+                get {
+                    try {
+                        return ((int)(this[this.tableBookRental.statusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'status\' in table \'BookRental\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBookRental.statusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsReturnDateNull() {
                 return this.IsNull(this.tableBookRental.ReturnDateColumn);
             }
@@ -3708,6 +3738,18 @@ namespace Biblioteka {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCopyIDNull() {
                 this[this.tableBookRental.CopyIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsstatusNull() {
+                return this.IsNull(this.tableBookRental.statusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetstatusNull() {
+                this[this.tableBookRental.statusColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4709,8 +4751,8 @@ namespace Biblioteka.libraryDbDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Books] ([Id], [Title], [Description], [Year], [publisherId]) V" +
-                "ALUES (@Id, @Title, @Description, @Year, @publisherId);\nSELECT Id, Title, Descri" +
-                "ption, Year, publisherId FROM Books WHERE (Id = @Id)";
+                "ALUES (@Id, @Title, @Description, @Year, @publisherId);\r\nSELECT Id, Title, Descr" +
+                "iption, Year, publisherId FROM Books WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5066,16 +5108,16 @@ SELECT Id, Title, Description, Year, publisherId FROM Books WHERE (Id = @Id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Publishers] ([Id], [Name]) VALUES (@Id, @Name);\nSELECT Id, Nam" +
-                "e FROM Publishers WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Publishers] ([Id], [Name]) VALUES (@Id, @Name);\r\nSELECT Id, Na" +
+                "me FROM Publishers WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Publishers] SET [Id] = @Id, [Name] = @Name WHERE (([Id] = @Original" +
-                "_Id) AND ([Name] = @Original_Name));\nSELECT Id, Name FROM Publishers WHERE (Id =" +
-                " @Id)";
+                "_Id) AND ([Name] = @Original_Name));\r\nSELECT Id, Name FROM Publishers WHERE (Id " +
+                "= @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5385,8 +5427,8 @@ SELECT Id, Title, Description, Year, publisherId FROM Books WHERE (Id = @Id)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[BookRental] ([Id], [rentDate], [returnDate], [readerId], [copy" +
-                "Id]) VALUES (@Id, @rentDate, @returnDate, @readerId, @copyId);\nSELECT Id, rentDa" +
-                "te, returnDate, readerId, copyId FROM BookRental WHERE (Id = @Id)";
+                "Id]) VALUES (@Id, @rentDate, @returnDate, @readerId, @copyId);\r\nSELECT Id, rentD" +
+                "ate, returnDate, readerId, copyId FROM BookRental WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rentDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rentDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5720,7 +5762,7 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Authors] ([Id], [Name], [Surname]) VALUES (@Id, @Name, @Surnam" +
-                "e);\nSELECT Id, Name, Surname FROM Authors WHERE (Id = @Id)";
+                "e);\r\nSELECT Id, Name, Surname FROM Authors WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5729,7 +5771,7 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Authors] SET [Id] = @Id, [Name] = @Name, [Surname] = @Surname WHERE" +
                 " (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Surname] = @Original" +
-                "_Surname));\nSELECT Id, Name, Surname FROM Authors WHERE (Id = @Id)";
+                "_Surname));\r\nSELECT Id, Name, Surname FROM Authors WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6289,8 +6331,8 @@ SELECT Id, rentDate, returnDate, readerId FROM BookRental WHERE (Id = @Id)";
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Copy] SET [Id] = @Id, [bookId] = @bookId WHERE (([Id] = @Original_I" +
-                "d) AND ([bookId] = @Original_bookId));\nSELECT Id, bookId FROM Copy WHERE (Id = @" +
-                "Id)";
+                "d) AND ([bookId] = @Original_bookId));\r\nSELECT Id, bookId FROM Copy WHERE (Id = " +
+                "@Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bookId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bookId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7169,15 +7211,15 @@ SELECT Id, Name, Surname, Street, HouseNum, Flat, City, PostCode, Email, PhoneNu
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Types] ([Id], [Name]) VALUES (@Id, @Name);\nSELECT Id, Name FRO" +
-                "M Types WHERE (Id = @Id)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Types] ([Id], [Name]) VALUES (@Id, @Name);\r\nSELECT Id, Name FR" +
+                "OM Types WHERE (Id = @Id)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Types] SET [Id] = @Id, [Name] = @Name WHERE (([Id] = @Original_Id) " +
-                "AND ([Name] = @Original_Name));\nSELECT Id, Name FROM Types WHERE (Id = @Id)";
+                "AND ([Name] = @Original_Name));\r\nSELECT Id, Name FROM Types WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

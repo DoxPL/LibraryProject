@@ -95,3 +95,16 @@ D:\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1.resour
 D:\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
 D:\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
 D:\LibraryProject-master\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddBook.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Orders.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Register.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache

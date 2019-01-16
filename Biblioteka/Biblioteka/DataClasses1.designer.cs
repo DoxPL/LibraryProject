@@ -60,7 +60,7 @@ namespace Biblioteka
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::Biblioteka.Properties.Settings.Default.D__LIBRARYPROJECT_LIBRARYDB_MDFConnectionString, mappingSource)
+				base(global::Biblioteka.Properties.Settings.Default.libraryDbConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1587,6 +1587,8 @@ namespace Biblioteka
 		
 		private int _CopyID;
 		
+		private int _status;
+		
 		private EntitySet<Users> _Users;
 		
 		private EntityRef<BookCopy> _BookCopy;
@@ -1605,6 +1607,8 @@ namespace Biblioteka
     partial void OnReaderIDChanged();
     partial void OnCopyIDChanging(int value);
     partial void OnCopyIDChanged();
+    partial void OnstatusChanging(int value);
+    partial void OnstatusChanged();
     #endregion
 		
 		public BookRental()
@@ -1710,6 +1714,26 @@ namespace Biblioteka
 					this._CopyID = value;
 					this.SendPropertyChanged("CopyID");
 					this.OnCopyIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status")]
+		public int status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
 				}
 			}
 		}

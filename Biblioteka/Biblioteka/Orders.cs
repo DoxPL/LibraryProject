@@ -12,6 +12,7 @@ namespace Biblioteka
 {
     public partial class Orders : Form
     {
+        bool selMode = true;
         DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
         public Orders()
         {
@@ -20,19 +21,21 @@ namespace Biblioteka
 
         private void Orders_Load(object sender, EventArgs e)
         {
-            loadOrders();
+            loadOrders(true);
         }
 
-        private void loadOrders()
+        private void loadOrders(bool selectMode)
         {
             DateTime today = DateTime.Today;
-            foreach (BookRental bookRental in dbDataContext.BookRentals.OrderByDescending(x => x.ID))
+            foreach (BookRental bookRental in dbDataContext.BookRentals.OrderByDescending(x => x.ID).
+                Where(y => y.status == (selectMode ? 1 : 0)))
             {
                 Users user = dbDataContext.Users.Where(x => x.ID == bookRental.ReaderID).First();
                 BookCopy bookCopy = dbDataContext.BookCopies.Where(x => x.ID == bookRental.CopyID).First();
                 Books book = dbDataContext.Books.Where(x => x.ID == bookCopy.BookID).First(); //name
-                DateTime returnDate = bookRental.RentDate.AddDays(30);
+                DateTime returnDate = (DateTime) bookRental.ReturnDate;
                 bool status = (returnDate.CompareTo(today) > 0);
+                string strStatus = (bookRental.status == 1) ? (status ? "Wypożyczona" : "Nieoddana") : "Oddana";
                 var item = new ListViewItem(new[]
                     {
                         bookRental.ID.ToString(),
@@ -40,7 +43,7 @@ namespace Biblioteka
                         bookRental.RentDate.ToString(),
                         returnDate.ToString(),
                         book.Title.ToString(),
-                        status ? "Wypożyczona" : "Nieoddana"
+                        strStatus
                     }
                 );
                 this.lvItems.Items.Add(item);
@@ -65,8 +68,48 @@ namespace Biblioteka
             foreach(ListViewItem item in lvItems.Items)
             {
                 if (item.Checked)
+                {
                     item.Remove();
-                //usuń z bazy danych
+                    int tmpID = int.Parse(item.Text.ToString());
+                    try
+                    {
+                        BookRental dbObject = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
+                        dbObject.ReturnDate = (DateTime?) DateTime.Now;
+                        dbObject.status = 0;
+                        dbDataContext.SubmitChanges();
+                    }
+                    catch(Exception exc)
+                    {
+                        MessageBox.Show(exc.Message);
+                    }
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clearList();
+            if (selMode)
+            {
+                selMode = false;
+                loadOrders(false);
+                button2.Text = "Wyświetl nieoddane";
+                button1.Enabled = false;
+            }
+            else
+            {
+                selMode = true;
+                loadOrders(true);
+                button2.Text = "Wyświetl oddane";
+                button1.Enabled = true;
+            }
+        }
+
+        private void clearList()
+        {
+            foreach(ListViewItem item in lvItems.Items)
+            {
+                item.Remove();
             }
         }
     }
