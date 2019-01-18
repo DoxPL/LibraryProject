@@ -18,7 +18,7 @@ namespace Biblioteka
         public static bool validPassword(string password)
         {
             //Hasło musi zawierać przynajmniej jedną dużą literę i dwie cyfry
-            string regExp = @"^((.*[A-Z]+.*[0-9]{2,}.*)|(.*[0-9]{2,}.*[A-Z]+.*))$";
+            string regExp = @"^(.*[0-9]+.*[A-Z]+(.*[0-9]+.*)+)|([A-Z]{1}.*[0-9]+.*[0-9]+.*)$";
             return Regex.IsMatch(password, regExp);
         }
 
