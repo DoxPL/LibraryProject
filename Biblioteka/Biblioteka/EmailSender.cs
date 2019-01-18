@@ -16,9 +16,9 @@ namespace Biblioteka
 {
     class EmailSender
     {
-        private string host = "smtp-relay.gmail.com";
-        private string username = "user";
-        private string password = "passwd";
+        private string host;
+        private string username;
+        private string password;
         private string from;
         private string to;
         private string message;

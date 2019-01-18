@@ -37,6 +37,7 @@
             this.cReturnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cBookName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -53,9 +54,9 @@
             // 
             this.button2.Location = new System.Drawing.Point(177, 425);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 37);
+            this.button2.Size = new System.Drawing.Size(96, 37);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Wyświetl oddane";
+            this.button2.Text = "Zmień tryb";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -96,17 +97,27 @@
             // cReturnDate
             // 
             this.cReturnDate.Text = "Data zwrotu";
-            this.cReturnDate.Width = 160;
+            this.cReturnDate.Width = 148;
             // 
             // cBookName
             // 
             this.cBookName.Text = "Nazwa książki";
-            this.cBookName.Width = 160;
+            this.cBookName.Width = 143;
             // 
             // cStatus
             // 
             this.cStatus.Text = "Stan";
             this.cStatus.Width = 70;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(781, 425);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(168, 37);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Wyślij przypomnienie";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Orders
             // 
@@ -114,9 +125,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Biblioteka.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(964, 474);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.lvItems);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Orders";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.Orders_Load);
@@ -134,5 +148,6 @@
         private System.Windows.Forms.ColumnHeader cBookName;
         private System.Windows.Forms.ColumnHeader cStatus;
         private System.Windows.Forms.ColumnHeader cID;
+        private System.Windows.Forms.Button button3;
     }
 }

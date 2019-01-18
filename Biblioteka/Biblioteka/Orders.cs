@@ -93,15 +93,15 @@ namespace Biblioteka
             {
                 selMode = false;
                 loadOrders(false);
-                button2.Text = "Wyświetl nieoddane";
                 button1.Enabled = false;
+                button3.Enabled = false;
             }
             else
             {
                 selMode = true;
                 loadOrders(true);
-                button2.Text = "Wyświetl oddane";
                 button1.Enabled = true;
+                button3.Enabled = true;
             }
         }
 
@@ -111,6 +111,34 @@ namespace Biblioteka
             {
                 item.Remove();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            EmailAccountModel model = new EmailAccountModel("smtp-mail.outlook.com", "libraryproject2019@outlook.com", "libraryproject2019", "*********");
+            int counter = 0;
+            foreach (ListViewItem item in lvItems.Items)
+            {
+                if(item.Checked)
+                {
+                    int tmpID = int.Parse(item.Text.ToString());
+                    BookRental borrowingData = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
+                    Users userData = dbDataContext.Users.SingleOrDefault(x => x.ID == borrowingData.ReaderID);
+                    BookCopy bookCopy = dbDataContext.BookCopies.SingleOrDefault(x => x.ID == borrowingData.CopyID);
+                    Books book = dbDataContext.Books.SingleOrDefault(x => x.ID == bookCopy.BookID);
+                    string email = userData.Email;
+                    EmailSender emailSender = new EmailSender(model, email, "Nieoddana książka: " + book.Title +
+                        ". Prosimy o zwrot");
+                    emailSender.send();
+                    counter++;
+                }
+            }
+            if (counter == 0)
+                MessageBox.Show("Nie wybrano żadnej opcji z listy");
+            else if (counter == 1)
+                MessageBox.Show("Wiadomość z przypomnieniem została wysłana");
+            else
+                MessageBox.Show("Wysłano wiadomości z przypomnieniem");
         }
     }
 }
