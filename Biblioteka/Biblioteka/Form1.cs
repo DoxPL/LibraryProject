@@ -98,7 +98,8 @@ namespace Biblioteka
 
         private void lbAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            AdminPanel adminPanel = new AdminPanel();
+            adminPanel.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -145,6 +146,18 @@ namespace Biblioteka
         {
             AddBook bookForm = new AddBook();
             bookForm.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            BookList bookList = new BookList();
+            bookList.Show();
+        }
+
+        private void adminPanelButton_Click(object sender, EventArgs e)
+        {
+            AdminPanel adminPanel = new AdminPanel();
+            adminPanel.Show();
         }
     }
 }

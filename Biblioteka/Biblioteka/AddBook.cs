@@ -90,5 +90,10 @@ namespace Biblioteka
         {
 
         }
+
+        private void tbDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
