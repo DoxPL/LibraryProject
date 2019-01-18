@@ -103,6 +103,7 @@ namespace Biblioteka
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //Dodawanie egzemplarzy do tabeli wypożyczeń
             foreach (string bookTitle in listBox1.SelectedItems)
             {
                 Books book = dbDataContext.Books.Where(x => x.Title == bookTitle).First();
@@ -110,12 +111,19 @@ namespace Biblioteka
                 rental.ReaderID = Program.loggedUser.ID;
                 rental.RentDate = DateTime.Now;
                 rental.ReturnDate = DateTime.Now.AddDays(30);
-                rental.CopyID = 1;
+                int freeCopy = getFreeCopy(book.ID);
+                if (freeCopy == -1)
+                {
+                    MessageBox.Show("Brak wolnego egzemplarza");
+                    break;
+                }
+                rental.CopyID = freeCopy;
                 rental.status = 1;
                 dbDataContext.BookRentals.InsertOnSubmit(rental);
+                BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == freeCopy).First();
+                bc.Free = 0;
                 dbDataContext.SubmitChanges();
                 MessageBox.Show(book.Title);
-                //MessageBox.Show("Wolna kopia: " + getFreeCopy(book.ID));
             }
         }
 

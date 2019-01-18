@@ -55,8 +55,21 @@ namespace Biblioteka
 
             dbDataContext.Books.InsertOnSubmit(book);
             dbDataContext.SubmitChanges();
+            addBookCopies(Convert.ToInt32(bcCount.Value), book.ID);
             //this.listBox1.Items.Add(book.Title.ToString());
             
+        }
+
+        private void addBookCopies(int count, int bookID)
+        {
+            for(int i=0; i < count; i++)
+            {
+                BookCopy bookCopy = new BookCopy();
+                bookCopy.Free = 1;
+                bookCopy.BookID = bookID;
+                dbDataContext.BookCopies.InsertOnSubmit(bookCopy);
+                dbDataContext.SubmitChanges();
+            }
         }
 
         private void AddBook_FormClosing(object sender, FormClosingEventArgs e)

@@ -44,7 +44,10 @@
             this.listBoxTypes = new System.Windows.Forms.ListBox();
             this.comboBoxPublishers = new System.Windows.Forms.ComboBox();
             this.tbAuthorSurname = new System.Windows.Forms.TextBox();
+            this.bcCount = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bcCount)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddBook
@@ -52,7 +55,7 @@
             this.btnAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddBook.ForeColor = System.Drawing.Color.Maroon;
             this.btnAddBook.Location = new System.Drawing.Point(124, 469);
-            this.btnAddBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(380, 41);
             this.btnAddBook.TabIndex = 1;
@@ -65,7 +68,7 @@
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbTitle.Location = new System.Drawing.Point(64, 31);
+            this.lbTitle.Location = new System.Drawing.Point(64, 17);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(39, 17);
             this.lbTitle.TabIndex = 10;
@@ -76,7 +79,7 @@
             this.lbAuthor.AutoSize = true;
             this.lbAuthor.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbAuthor.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbAuthor.Location = new System.Drawing.Point(64, 76);
+            this.lbAuthor.Location = new System.Drawing.Point(64, 62);
             this.lbAuthor.Name = "lbAuthor";
             this.lbAuthor.Size = new System.Drawing.Size(148, 17);
             this.lbAuthor.TabIndex = 11;
@@ -87,7 +90,7 @@
             this.lbYear.AutoSize = true;
             this.lbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbYear.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbYear.Location = new System.Drawing.Point(64, 122);
+            this.lbYear.Location = new System.Drawing.Point(64, 108);
             this.lbYear.Name = "lbYear";
             this.lbYear.Size = new System.Drawing.Size(88, 17);
             this.lbYear.TabIndex = 12;
@@ -98,7 +101,7 @@
             this.lbPublisher.AutoSize = true;
             this.lbPublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbPublisher.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbPublisher.Location = new System.Drawing.Point(64, 167);
+            this.lbPublisher.Location = new System.Drawing.Point(64, 153);
             this.lbPublisher.Name = "lbPublisher";
             this.lbPublisher.Size = new System.Drawing.Size(68, 17);
             this.lbPublisher.TabIndex = 13;
@@ -109,7 +112,7 @@
             this.lbType.AutoSize = true;
             this.lbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbType.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbType.Location = new System.Drawing.Point(64, 213);
+            this.lbType.Location = new System.Drawing.Point(64, 199);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(62, 17);
             this.lbType.TabIndex = 14;
@@ -120,7 +123,7 @@
             this.lbDescription.AutoSize = true;
             this.lbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbDescription.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbDescription.Location = new System.Drawing.Point(65, 258);
+            this.lbDescription.Location = new System.Drawing.Point(65, 244);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(37, 17);
             this.lbDescription.TabIndex = 15;
@@ -128,7 +131,7 @@
             // 
             // tbTitle
             // 
-            this.tbTitle.Location = new System.Drawing.Point(68, 49);
+            this.tbTitle.Location = new System.Drawing.Point(68, 35);
             this.tbTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbTitle.Name = "tbTitle";
             this.tbTitle.Size = new System.Drawing.Size(379, 22);
@@ -136,7 +139,7 @@
             // 
             // tbAuthorName
             // 
-            this.tbAuthorName.Location = new System.Drawing.Point(68, 95);
+            this.tbAuthorName.Location = new System.Drawing.Point(68, 81);
             this.tbAuthorName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAuthorName.Name = "tbAuthorName";
             this.tbAuthorName.Size = new System.Drawing.Size(185, 22);
@@ -144,7 +147,7 @@
             // 
             // tbYear
             // 
-            this.tbYear.Location = new System.Drawing.Point(68, 140);
+            this.tbYear.Location = new System.Drawing.Point(68, 126);
             this.tbYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbYear.Name = "tbYear";
             this.tbYear.Size = new System.Drawing.Size(379, 22);
@@ -152,7 +155,7 @@
             // 
             // tbDescription
             // 
-            this.tbDescription.Location = new System.Drawing.Point(68, 277);
+            this.tbDescription.Location = new System.Drawing.Point(68, 263);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(379, 22);
@@ -162,6 +165,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = global::Biblioteka.Properties.Resources.panel_bg;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.bcCount);
             this.panel1.Controls.Add(this.listBoxTypes);
             this.panel1.Controls.Add(this.comboBoxPublishers);
             this.panel1.Controls.Add(this.tbAuthorSurname);
@@ -176,17 +181,17 @@
             this.panel1.Controls.Add(this.lbPublisher);
             this.panel1.Controls.Add(this.lbYear);
             this.panel1.Location = new System.Drawing.Point(56, 65);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(524, 342);
+            this.panel1.Size = new System.Drawing.Size(524, 371);
             this.panel1.TabIndex = 2;
             // 
             // listBoxTypes
             // 
             this.listBoxTypes.FormattingEnabled = true;
             this.listBoxTypes.ItemHeight = 16;
-            this.listBoxTypes.Location = new System.Drawing.Point(68, 233);
-            this.listBoxTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBoxTypes.Location = new System.Drawing.Point(68, 219);
+            this.listBoxTypes.Margin = new System.Windows.Forms.Padding(4);
             this.listBoxTypes.Name = "listBoxTypes";
             this.listBoxTypes.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.listBoxTypes.Size = new System.Drawing.Size(379, 20);
@@ -195,19 +200,47 @@
             // comboBoxPublishers
             // 
             this.comboBoxPublishers.FormattingEnabled = true;
-            this.comboBoxPublishers.Location = new System.Drawing.Point(68, 183);
-            this.comboBoxPublishers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxPublishers.Location = new System.Drawing.Point(68, 169);
+            this.comboBoxPublishers.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPublishers.Name = "comboBoxPublishers";
             this.comboBoxPublishers.Size = new System.Drawing.Size(379, 24);
             this.comboBoxPublishers.TabIndex = 20;
             // 
             // tbAuthorSurname
             // 
-            this.tbAuthorSurname.Location = new System.Drawing.Point(261, 95);
+            this.tbAuthorSurname.Location = new System.Drawing.Point(261, 81);
             this.tbAuthorSurname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbAuthorSurname.Name = "tbAuthorSurname";
             this.tbAuthorSurname.Size = new System.Drawing.Size(185, 22);
             this.tbAuthorSurname.TabIndex = 18;
+            // 
+            // bcCount
+            // 
+            this.bcCount.Location = new System.Drawing.Point(69, 311);
+            this.bcCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.bcCount.Name = "bcCount";
+            this.bcCount.Size = new System.Drawing.Size(377, 22);
+            this.bcCount.TabIndex = 24;
+            this.bcCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(66, 291);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 17);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Ilość egzemplarzy";
             // 
             // AddBook
             // 
@@ -217,13 +250,14 @@
             this.ClientSize = new System.Drawing.Size(645, 567);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAddBook);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddBook";
             this.Text = "Dodawanie książki";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddBook_FormClosing);
             this.Load += new System.EventHandler(this.AddBook_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bcCount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,5 +278,7 @@
         private System.Windows.Forms.TextBox tbAuthorSurname;
         private System.Windows.Forms.ComboBox comboBoxPublishers;
         private System.Windows.Forms.ListBox listBoxTypes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown bcCount;
     }
 }

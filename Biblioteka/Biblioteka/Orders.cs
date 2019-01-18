@@ -74,6 +74,8 @@ namespace Biblioteka
                     try
                     {
                         BookRental dbObject = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
+                        BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == dbObject.CopyID).First();
+                        bc.Free = 1;
                         dbObject.ReturnDate = (DateTime?) DateTime.Now;
                         dbObject.status = 0;
                         dbDataContext.SubmitChanges();
