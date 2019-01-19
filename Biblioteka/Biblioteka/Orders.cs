@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace Biblioteka
 {
@@ -115,9 +118,25 @@ namespace Biblioteka
             }
         }
 
+        private EmailAccountModel getModelFromXml()
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("Email.xml");
+            string path = "data/host";
+            XmlNode hostNode = xmlDoc.DocumentElement.SelectSingleNode("data/host");
+            XmlNode loginNode = xmlDoc.DocumentElement.SelectSingleNode("data/login");
+            XmlNode passNode = xmlDoc.DocumentElement.SelectSingleNode("data/pass");
+            return new EmailAccountModel(hostNode.InnerText, loginNode.InnerText, loginNode.InnerText, passNode.InnerText);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            EmailAccountModel model = new EmailAccountModel("smtp-mail.outlook.com", "libraryproject2019@outlook.com", "libraryproject2019", "*********");
+            if(!isXMLExists())
+            {
+                new XmlCreator().Show();
+                return;
+            }
+            EmailAccountModel model = getModelFromXml();
             int counter = 0;
             foreach (ListViewItem item in lvItems.Items)
             {
@@ -141,6 +160,13 @@ namespace Biblioteka
                 MessageBox.Show("Wiadomość z przypomnieniem została wysłana");
             else
                 MessageBox.Show("Wysłano wiadomości z przypomnieniem");
+        }
+
+        public bool isXMLExists()
+        {
+            if (!File.Exists("Email.xml"))
+                return false;
+            return true;
         }
     }
 }

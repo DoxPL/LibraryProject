@@ -36,8 +36,8 @@ namespace Biblioteka
                     this.Hide();
                     MessageBox.Show("Zalogowano pomyślnie");
                     Program.loggedUser = dbDataContext.Users.Where(x => x.Email == mailInput).First();
-                    Form1 form = new Form1();
-                    form.Show();
+                    BookListForm bookListForm = new BookListForm();
+                    bookListForm.Show();
                 }
                 else
                 {
@@ -74,6 +74,11 @@ namespace Biblioteka
             {
                 login();
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            new Register().Show();
         }
     }
 }
