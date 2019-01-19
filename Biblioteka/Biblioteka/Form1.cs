@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteka.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -148,16 +149,21 @@ namespace Biblioteka
             bookForm.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            BookList bookList = new BookList();
-            bookList.Show();
-        }
-
         private void adminPanelButton_Click(object sender, EventArgs e)
         {
             AdminPanel adminPanel = new AdminPanel();
             adminPanel.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Stworzone do testowania mozna skasowac komentrze ponizej: 
+            //DodajAutora dodajAutora = new DodajAutora();
+            //dodajAutora.Show();
+            //DodajGatunek dodajGatunek = new DodajGatunek();
+            //dodajGatunek.Show();
+            DodajWydawnictwo dodajWydawnictwo = new DodajWydawnictwo();
+            dodajWydawnictwo.Show();
         }
     }
 }

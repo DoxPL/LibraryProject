@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteka.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,20 +41,20 @@ namespace Biblioteka
 
         private void addAuthorButton_Click(object sender, EventArgs e)
         {
-            AddAuthor addAuthor = new AddAuthor();
-            addAuthor.Show();
+            DodajAutora dodajAutora = new DodajAutora();
+            dodajAutora.Show();
         }
 
         private void addGenreButton_Click(object sender, EventArgs e)
         {
-            AddGenre addGenre = new AddGenre();
-            addGenre.Show();
+            DodajGatunek dodajGatunek = new DodajGatunek();
+            dodajGatunek.Show();
         }
 
         private void addPublisherButton_Click(object sender, EventArgs e)
         {
-            AddPublisher addPublisher = new AddPublisher();
-            addPublisher.Show();
+            DodajWydawnictwo dodajWydawnictwo = new DodajWydawnictwo();
+            dodajWydawnictwo.Show();
         }
     }
 }
