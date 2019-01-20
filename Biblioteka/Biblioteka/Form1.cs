@@ -124,7 +124,7 @@ namespace Biblioteka
                 BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == freeCopy).First();
                 bc.Free = 0;
                 dbDataContext.SubmitChanges();
-                MessageBox.Show(book.Title);
+                MessageBox.Show("Wypożyczono: " + book.Title);
             }
         }
 
@@ -158,6 +158,12 @@ namespace Biblioteka
         {
             AdminPanel adminPanel = new AdminPanel();
             adminPanel.Show();
+        }
+
+        private void lbUser_Click(object sender, EventArgs e)
+        {
+            BookListForm bookList = new BookListForm();
+            bookList.Show();
         }
     }
 }
