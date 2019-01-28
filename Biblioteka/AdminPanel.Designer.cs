@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.libraryDbDataSet = new Biblioteka.libraryDbDataSet();
-            this.addBookButton = new System.Windows.Forms.Button();
-            this.addAuthorButton = new System.Windows.Forms.Button();
-            this.addGenreButton = new System.Windows.Forms.Button();
-            this.addPublisherButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +45,13 @@
             this.adminStatusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersTableAdapter = new Biblioteka.libraryDbDataSetTableAdapters.UsersTableAdapter();
+            this.addGenreButton = new System.Windows.Forms.Button();
+            this.addBookButton = new System.Windows.Forms.Button();
+            this.addAuthorButton = new System.Windows.Forms.Button();
+            this.wyswietl = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
@@ -60,50 +62,11 @@
             this.libraryDbDataSet.DataSetName = "libraryDbDataSet";
             this.libraryDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // addBookButton
-            // 
-            this.addBookButton.Location = new System.Drawing.Point(60, 377);
-            this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(105, 33);
-            this.addBookButton.TabIndex = 1;
-            this.addBookButton.Text = "dodaj ksiazke";
-            this.addBookButton.UseVisualStyleBackColor = true;
-            this.addBookButton.Click += new System.EventHandler(this.addBookButton_Click);
-            // 
-            // addAuthorButton
-            // 
-            this.addAuthorButton.Location = new System.Drawing.Point(187, 378);
-            this.addAuthorButton.Name = "addAuthorButton";
-            this.addAuthorButton.Size = new System.Drawing.Size(117, 34);
-            this.addAuthorButton.TabIndex = 2;
-            this.addAuthorButton.Text = "dodaj autora";
-            this.addAuthorButton.UseVisualStyleBackColor = true;
-            this.addAuthorButton.Click += new System.EventHandler(this.addAuthorButton_Click);
-            // 
-            // addGenreButton
-            // 
-            this.addGenreButton.Location = new System.Drawing.Point(320, 377);
-            this.addGenreButton.Name = "addGenreButton";
-            this.addGenreButton.Size = new System.Drawing.Size(120, 35);
-            this.addGenreButton.TabIndex = 3;
-            this.addGenreButton.Text = "dodaj gatunek";
-            this.addGenreButton.UseVisualStyleBackColor = true;
-            this.addGenreButton.Click += new System.EventHandler(this.addGenreButton_Click);
-            // 
-            // addPublisherButton
-            // 
-            this.addPublisherButton.Location = new System.Drawing.Point(457, 376);
-            this.addPublisherButton.Name = "addPublisherButton";
-            this.addPublisherButton.Size = new System.Drawing.Size(127, 35);
-            this.addPublisherButton.TabIndex = 4;
-            this.addPublisherButton.Text = "dodaj wydawce";
-            this.addPublisherButton.UseVisualStyleBackColor = true;
-            this.addPublisherButton.Click += new System.EventHandler(this.addPublisherButton_Click);
-            // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -120,13 +83,10 @@
             this.passwordDataGridViewTextBoxColumn,
             this.adminStatusDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.usersBindingSource;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1242, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(1272, 325);
             this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.DataMemberChanged += new System.EventHandler(this.dataGridView1_DataMemberChanged);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -209,13 +169,103 @@
             // 
             this.usersTableAdapter.ClearBeforeFill = true;
             // 
+            // addGenreButton
+            // 
+            this.addGenreButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.addGenreButton.Enabled = false;
+            this.addGenreButton.Location = new System.Drawing.Point(382, 357);
+            this.addGenreButton.Name = "addGenreButton";
+            this.addGenreButton.Size = new System.Drawing.Size(120, 35);
+            this.addGenreButton.TabIndex = 3;
+            this.addGenreButton.Text = "Edytuj użytkownika";
+            this.addGenreButton.UseVisualStyleBackColor = true;
+            this.addGenreButton.Click += new System.EventHandler(this.addGenreButton_Click);
+            // 
+            // addBookButton
+            // 
+            this.addBookButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.addBookButton.Enabled = false;
+            this.addBookButton.Location = new System.Drawing.Point(148, 356);
+            this.addBookButton.Name = "addBookButton";
+            this.addBookButton.Size = new System.Drawing.Size(105, 33);
+            this.addBookButton.TabIndex = 1;
+            this.addBookButton.Text = "Dodaj użytkownika";
+            this.addBookButton.UseVisualStyleBackColor = true;
+            this.addBookButton.Click += new System.EventHandler(this.DodajUzytkownika_Click);
+            // 
+            // addAuthorButton
+            // 
+            this.addAuthorButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.addAuthorButton.Enabled = false;
+            this.addAuthorButton.Location = new System.Drawing.Point(259, 356);
+            this.addAuthorButton.Name = "addAuthorButton";
+            this.addAuthorButton.Size = new System.Drawing.Size(117, 34);
+            this.addAuthorButton.TabIndex = 2;
+            this.addAuthorButton.Text = "Usun użytkownika";
+            this.addAuthorButton.UseCompatibleTextRendering = true;
+            this.addAuthorButton.UseVisualStyleBackColor = true;
+            this.addAuthorButton.Click += new System.EventHandler(this.DeleteUser_Click);
+            // 
+            // wyswietl
+            // 
+            this.wyswietl.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.wyswietl.Location = new System.Drawing.Point(12, 356);
+            this.wyswietl.Name = "wyswietl";
+            this.wyswietl.Size = new System.Drawing.Size(127, 33);
+            this.wyswietl.TabIndex = 6;
+            this.wyswietl.Text = "Wyświetl";
+            this.wyswietl.UseVisualStyleBackColor = true;
+            this.wyswietl.Click += new System.EventHandler(this.Wyswietl_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(507, 358);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 33);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Dodaj książkę";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.Enabled = false;
+            this.button2.Location = new System.Drawing.Point(642, 358);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(131, 33);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Dodaj gatunek";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(777, 359);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(131, 33);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Dodaj wydawnictwo";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 450);
+            this.ClientSize = new System.Drawing.Size(1053, 426);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.wyswietl);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.addPublisherButton);
             this.Controls.Add(this.addGenreButton);
             this.Controls.Add(this.addAuthorButton);
             this.Controls.Add(this.addBookButton);
@@ -231,11 +281,6 @@
 
         #endregion
         private libraryDbDataSet libraryDbDataSet;
-        private System.Windows.Forms.Button addBookButton;
-        private System.Windows.Forms.Button addAuthorButton;
-        private System.Windows.Forms.Button addGenreButton;
-        private System.Windows.Forms.Button addPublisherButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource usersBindingSource;
         private libraryDbDataSetTableAdapters.UsersTableAdapter usersTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
@@ -250,5 +295,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adminStatusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button addGenreButton;
+        private System.Windows.Forms.Button addBookButton;
+        private System.Windows.Forms.Button addAuthorButton;
+        private System.Windows.Forms.Button wyswietl;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
