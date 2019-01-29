@@ -25,6 +25,11 @@ namespace Biblioteka
         private void Orders_Load(object sender, EventArgs e)
         {
             loadOrders(true);
+            if (Program.loggedUser.AdminStatus == 0)
+            {
+                this.button1.Enabled = false;
+                this.button3.Enabled = false;
+            }
         }
 
         private void loadOrders(bool selectMode)

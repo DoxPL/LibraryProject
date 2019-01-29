@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPublisher));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Zatwierdz = new System.Windows.Forms.Button();
@@ -72,7 +73,7 @@
             this.Anuluj.UseVisualStyleBackColor = true;
             this.Anuluj.Click += new System.EventHandler(this.Anuluj_Click);
             // 
-            // DodajWydawnictwo
+            // AddPublisher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +83,8 @@
             this.Controls.Add(this.Zatwierdz);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "DodajWydawnictwo";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "AddPublisher";
             this.Text = "DodajWydawnictwo";
             this.ResumeLayout(false);
             this.PerformLayout();

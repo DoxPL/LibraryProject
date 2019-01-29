@@ -165,3 +165,53 @@ D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookListForm.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookItem.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.XmlCreator.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form2.resources
+F:\0x0000d\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+F:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+F:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+C:\Users\Komputer\Desktop\0x0000d — kopia\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+C:\Users\Komputer\Desktop\0x0000d — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+C:\Users\Komputer\Desktop\0x0000d — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddBook.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddGenre.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddPublisher.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AdminPanel.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookItem.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookList.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookListForm.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form2.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Orders.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Register.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.XmlCreator.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
+C:\Users\Komputer\Desktop\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Resources.DodajAutora.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Resources.DodajAutora.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddBook.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddGenre.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddPublisher.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AdminPanel.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookItem.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookList.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookListForm.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form2.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Orders.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Register.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.XmlCreator.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form1.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Login.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
+C:\Users\Komputer\Desktop\0x0000d — kopia10 — kopia\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache

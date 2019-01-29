@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             this.libraryDbDataSet = new Biblioteka.libraryDbDataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +53,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.bib = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
@@ -80,10 +82,9 @@
             this.passwordDataGridViewTextBoxColumn,
             this.adminStatusDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.usersBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(16, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1656, 430);
+            this.dataGridView1.Size = new System.Drawing.Size(1242, 349);
             this.dataGridView1.TabIndex = 5;
             // 
             // iDDataGridViewTextBoxColumn
@@ -169,10 +170,9 @@
             // 
             // addGenreButton
             // 
-            this.addGenreButton.Location = new System.Drawing.Point(427, 464);
-            this.addGenreButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addGenreButton.Location = new System.Drawing.Point(320, 377);
             this.addGenreButton.Name = "addGenreButton";
-            this.addGenreButton.Size = new System.Drawing.Size(160, 43);
+            this.addGenreButton.Size = new System.Drawing.Size(120, 35);
             this.addGenreButton.TabIndex = 3;
             this.addGenreButton.Text = "edytuj użytkownika";
             this.addGenreButton.UseVisualStyleBackColor = true;
@@ -180,10 +180,9 @@
             // 
             // addBookButton
             // 
-            this.addBookButton.Location = new System.Drawing.Point(83, 466);
-            this.addBookButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addBookButton.Location = new System.Drawing.Point(62, 379);
             this.addBookButton.Name = "addBookButton";
-            this.addBookButton.Size = new System.Drawing.Size(140, 41);
+            this.addBookButton.Size = new System.Drawing.Size(105, 33);
             this.addBookButton.TabIndex = 1;
             this.addBookButton.Text = "dodaj użytkownika";
             this.addBookButton.UseVisualStyleBackColor = true;
@@ -191,10 +190,9 @@
             // 
             // addAuthorButton
             // 
-            this.addAuthorButton.Location = new System.Drawing.Point(249, 465);
-            this.addAuthorButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addAuthorButton.Location = new System.Drawing.Point(187, 378);
             this.addAuthorButton.Name = "addAuthorButton";
-            this.addAuthorButton.Size = new System.Drawing.Size(156, 42);
+            this.addAuthorButton.Size = new System.Drawing.Size(117, 34);
             this.addAuthorButton.TabIndex = 2;
             this.addAuthorButton.Text = "usuń użytkownika";
             this.addAuthorButton.UseVisualStyleBackColor = true;
@@ -202,10 +200,9 @@
             // 
             // wyswietl
             // 
-            this.wyswietl.Location = new System.Drawing.Point(1375, 463);
-            this.wyswietl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.wyswietl.Location = new System.Drawing.Point(1031, 376);
             this.wyswietl.Name = "wyswietl";
-            this.wyswietl.Size = new System.Drawing.Size(169, 43);
+            this.wyswietl.Size = new System.Drawing.Size(127, 35);
             this.wyswietl.TabIndex = 6;
             this.wyswietl.Text = "Wyświetl";
             this.wyswietl.UseVisualStyleBackColor = true;
@@ -213,9 +210,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1193, 464);
+            this.button1.Location = new System.Drawing.Point(895, 377);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 41);
+            this.button1.Size = new System.Drawing.Size(131, 33);
             this.button1.TabIndex = 7;
             this.button1.Text = "Dodaj książkę";
             this.button1.UseVisualStyleBackColor = true;
@@ -223,9 +221,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(606, 465);
+            this.button2.Location = new System.Drawing.Point(454, 378);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 41);
+            this.button2.Size = new System.Drawing.Size(131, 33);
             this.button2.TabIndex = 8;
             this.button2.Text = "Dodaj gatunek";
             this.button2.UseVisualStyleBackColor = true;
@@ -233,19 +232,31 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(800, 465);
+            this.button3.Location = new System.Drawing.Point(600, 378);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(175, 41);
+            this.button3.Size = new System.Drawing.Size(131, 33);
             this.button3.TabIndex = 9;
             this.button3.Text = "Dodaj wydawnictwo";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // bib
+            // 
+            this.bib.Location = new System.Drawing.Point(749, 376);
+            this.bib.Name = "bib";
+            this.bib.Size = new System.Drawing.Size(131, 33);
+            this.bib.TabIndex = 10;
+            this.bib.Text = "Biblioteka";
+            this.bib.UseVisualStyleBackColor = true;
+            this.bib.Click += new System.EventHandler(this.bib_Click);
+            // 
             // AdminPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1688, 554);
+            this.ClientSize = new System.Drawing.Size(1266, 450);
+            this.Controls.Add(this.bib);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -254,7 +265,7 @@
             this.Controls.Add(this.addGenreButton);
             this.Controls.Add(this.addAuthorButton);
             this.Controls.Add(this.addBookButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminPanel";
             this.Text = "Panel administratora";
             this.Load += new System.EventHandler(this.AdminPanel_Load);
@@ -289,5 +300,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button bib;
     }
 }

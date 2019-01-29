@@ -139,5 +139,10 @@ namespace Biblioteka
         {
             new AddBook().Show();
         }
+
+        private void bib_Click(object sender, EventArgs e)
+        {
+            new BookListForm().Show();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DodajAutora));
             this.ImieAutora = new System.Windows.Forms.TextBox();
             this.NazwiskoAutora = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,6 +112,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NazwiskoAutora);
             this.Controls.Add(this.ImieAutora);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DodajAutora";
             this.Text = "DodajAutora";
             this.Load += new System.EventHandler(this.DodajAutora_Load);

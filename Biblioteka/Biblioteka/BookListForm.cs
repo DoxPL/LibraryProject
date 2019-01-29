@@ -21,8 +21,6 @@ namespace Biblioteka
             lbUser.Text = (Program.loggedUser.Name + " " + Program.loggedUser.Surname);
             lbUser.Text += " (" + ((Program.loggedUser.AdminStatus == 0) ? "Czytelnik" : "Administrator") + ")";
             loadBooks();
-            if (Program.loggedUser.AdminStatus == 0)
-                this.linkLabel1.Enabled = false;
         }
 
         private ImageList loadImages()
