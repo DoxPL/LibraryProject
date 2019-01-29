@@ -42,12 +42,11 @@ namespace Biblioteka
             form2.Show();
             form2.button1.Visible = true;
             form2.button2.Visible = false;
-            Wyswietl_Click(sender, e);
         }
 
         public void DeleteUser_Click(object sender, EventArgs e) //usun uzytkownika
         {
-            DialogResult dialogResult = MessageBox.Show("Tak", "Na pewno chcesz usunąć użytkownika?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Na pewno chcesz usunąć użytkownika?", "Potwierdź usunięcie użytkownika", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
@@ -63,7 +62,7 @@ namespace Biblioteka
                         dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
                         cmd.ExecuteNonQuery();
                         conn.Close();
-
+                        Wyswietl_Click(sender, e);
                     }
 
                 }
@@ -92,7 +91,7 @@ namespace Biblioteka
             form2.textBox7.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             form2.textBox8.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
             form2.textBox9.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-            form2.textBox10.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            //form2.textBox10.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
             form2.textBox11.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
 
             form2.Show();
@@ -110,7 +109,7 @@ namespace Biblioteka
            
         }
 
-        private void Wyswietl_Click(object sender, EventArgs e)
+        public void Wyswietl_Click(object sender, EventArgs e)
         {
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -128,6 +127,7 @@ namespace Biblioteka
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
+            wyswietl.Text = "Odśwież";
         }
 
         private void button3_Click(object sender, EventArgs e) // dodaj wydawnictwo
