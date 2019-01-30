@@ -220,3 +220,4 @@ D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properti
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache

@@ -13,6 +13,7 @@ namespace Biblioteka
     public partial class BookListForm : Form
     {
         DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
+        List<ListViewItem> items = new List<ListViewItem>();
 
         private void List_Load(object sender, EventArgs e)
         {
@@ -21,6 +22,12 @@ namespace Biblioteka
             lbUser.Text = (Program.loggedUser.Name + " " + Program.loggedUser.Surname);
             lbUser.Text += " (" + ((Program.loggedUser.AdminStatus == 0) ? "Czytelnik" : "Administrator") + ")";
             loadBooks();
+            this.comboBox1.Items.Add("Wg tytułu");
+            this.comboBox1.Items.Add("Wg opisu");
+            this.comboBox1.Items.Add("Wg autora");
+            this.comboBox1.Items.Add("Wg wydawnictwa");
+            this.comboBox1.Items.Add("Wg gatunku");
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private ImageList loadImages()
@@ -54,20 +61,23 @@ namespace Biblioteka
 
             foreach (Books book in dbDataContext.Books.OrderByDescending(x => x.Title))
             {
-
+                int copiesCount = dbDataContext.BookCopies.Where(x => x.BookID == book.ID).Where(y => y.Free == 1).Count();
                 var item = new ListViewItem(new[]
                     {
                             book.Title.ToString(),
                             book.Description.ToString(),
+                            authorsToString(getAuthors(book.ID)),
                             book.Publishers.Name.ToString(),
                             typesToString(getTypes(book.ID)),
                             book.Year.ToString(),
+                            copiesCount.ToString(),
                             book.ID.ToString()
                     }
                 );
 
                 item.ImageKey = book.ID.ToString();
                 this.lvItems.Items.Add(item);
+                items.Add(item);
             }
         }
 
@@ -85,6 +95,7 @@ namespace Biblioteka
             }
             return str;
         }
+
 
         private List<string> getTypes(int bookID)
         {
@@ -104,13 +115,44 @@ namespace Biblioteka
             return list;
         }
 
+        public string authorsToString(List<string> list)
+        {
+            string str = "";
+            foreach (string name in list)
+            {
+                str += name + "\n";
+            }
+            if (str == "")
+                return "Autorstwo nieznane";
+            return str;
+        }
+
+
+        private List<string> getAuthors(int bookID)
+        {
+            List<string> list = new List<string>();
+            try
+            {
+                foreach (Writing writing in dbDataContext.Writings.Where(x => x.BookID == bookID))
+                {
+                    Authors author = dbDataContext.Authors.Where(x => x.ID == writing.AuthorID).First();
+                    list.Add(author.Name + " " + author.Surname);
+                }
+            }
+            catch (Exception exc)
+            {
+                //MessageBox.Show(exc.Message);
+            }
+            return list;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in lvItems.Items)
             {
                 if (item.Selected)
                 {
-                    int id = int.Parse(item.SubItems[5].Text);
+                    int id = int.Parse(item.SubItems[7].Text);
                     Books book = dbDataContext.Books.Where(x => x.ID == id).First();
                     BookRental rental = new BookRental();
                     rental.ReaderID = Program.loggedUser.ID;
@@ -164,6 +206,19 @@ namespace Biblioteka
         private void refresh_Click(object sender, EventArgs e)
         {
             this.lvItems.Refresh();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            this.lvItems.Items.Clear();
+          
+            foreach (ListViewItem item in this.items)
+            {
+                if (item.SubItems[this.comboBox1.SelectedIndex].Text.ToString().ToLower().Contains(this.textBox1.Text.ToString().ToLower()))
+                {
+                    this.lvItems.Items.Add(item);
+                }
+            }
         }
     }
 }

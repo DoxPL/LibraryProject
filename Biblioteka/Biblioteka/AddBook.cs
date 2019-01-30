@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +42,7 @@ namespace Biblioteka
 
         private void btnAddBook_Click(object sender, EventArgs e)
         {
+            
             List<string> errList = new List<string>();
             if (!Validation.validTitle(this.tbTitle.Text.ToString()))
                 errList.Add("Nieprawidłowy tytuł. Można używać tylko liter.");
@@ -64,7 +64,6 @@ namespace Biblioteka
                 errList.Add("Nieprawidłowa nazwa wydawcy");
             else if (!Validation.validCount(this.bcCount.Text.ToString()))
                 errList.Add("Nieprawidłowa ilość egzemplarzy");
-
 
             if (errList.Count == 0)
             {
@@ -101,9 +100,19 @@ namespace Biblioteka
                 dbDataContext.SubmitChanges();
                 addBookCopies(Convert.ToInt32(bcCount.Value), book.ID);
                 //this.listBox1.Items.Add(book.Title.ToString());
-
+                MessageBox.Show("Dodawanie książki zakończone sukcesem !");
                 Close();
             }
+            else
+            {
+                string errOutput = "";
+                foreach (var errMsg in errList)
+                {
+                    errOutput += (errMsg.ToString() + "\n");
+                }
+                MessageBox.Show(errOutput);
+            }
+
         }
 
         private void addBookCopies(int count, int bookID)
