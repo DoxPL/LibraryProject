@@ -28,90 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.libraryDbDataSet = new Biblioteka.libraryDbDataSet();
-            this.bookTypesTableAdapter = new Biblioteka.libraryDbDataSetTableAdapters.BookTypesTableAdapter();
-            this.bookTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bookIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDbDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookTypesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // libraryDbDataSet
+            // textBox1
             // 
-            this.libraryDbDataSet.DataSetName = "libraryDbDataSet";
-            this.libraryDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(114, 82);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(223, 20);
+            this.textBox1.TabIndex = 1;
             // 
-            // bookTypesTableAdapter
+            // label3
             // 
-            this.bookTypesTableAdapter.ClearBeforeFill = true;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label3.Location = new System.Drawing.Point(39, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(380, 33);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Dodawanie nowego gatunku";
             // 
-            // bookTypesBindingSource
+            // label2
             // 
-            this.bookTypesBindingSource.DataMember = "BookTypes";
-            this.bookTypesBindingSource.DataSource = this.libraryDbDataSet;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.label2.Location = new System.Drawing.Point(114, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 24);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Nazwa nowego gatunku: ";
             // 
-            // dataGridView1
+            // button1
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bookIDDataGridViewTextBoxColumn,
-            this.typeIDDataGridViewTextBoxColumn,
-            this.iDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bookTypesBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 0;
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(80, 137);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 36);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Zatwierdź";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // bookIDDataGridViewTextBoxColumn
+            // button3
             // 
-            this.bookIDDataGridViewTextBoxColumn.DataPropertyName = "BookID";
-            this.bookIDDataGridViewTextBoxColumn.HeaderText = "BookID";
-            this.bookIDDataGridViewTextBoxColumn.Name = "bookIDDataGridViewTextBoxColumn";
-            // 
-            // typeIDDataGridViewTextBoxColumn
-            // 
-            this.typeIDDataGridViewTextBoxColumn.DataPropertyName = "TypeID";
-            this.typeIDDataGridViewTextBoxColumn.HeaderText = "TypeID";
-            this.typeIDDataGridViewTextBoxColumn.Name = "typeIDDataGridViewTextBoxColumn";
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button3.BackColor = System.Drawing.Color.Tomato;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Location = new System.Drawing.Point(238, 137);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(125, 36);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Anuluj";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // AddGenre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.ClientSize = new System.Drawing.Size(438, 210);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
             this.Name = "AddGenre";
-            this.Text = "AddGenre";
-            this.Load += new System.EventHandler(this.AddGenre_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDbDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookTypesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Dodawanie nowego gatunku";
+            this.Load += new System.EventHandler(this.DodajGatunek_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
+            this.MaximizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 
         }
 
         #endregion
-        private libraryDbDataSet libraryDbDataSet;
-        private libraryDbDataSetTableAdapters.BookTypesTableAdapter bookTypesTableAdapter;
-        private System.Windows.Forms.BindingSource bookTypesBindingSource;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }
