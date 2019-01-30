@@ -12,16 +12,34 @@ namespace Biblioteka
 {
     public partial class AddGenre : Form
     {
+        DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
+
         public AddGenre()
         {
             InitializeComponent();
         }
 
-        private void AddGenre_Load(object sender, EventArgs e)
+        private void DodajGatunek_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'libraryDbDataSet.BookTypes' table. You can move, or remove it, as needed.
-            this.bookTypesTableAdapter.Fill(this.libraryDbDataSet.BookTypes);
 
+        }
+
+        private void Anuluj_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść ?", "Zakończ", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+        private void Zatwierdz_Click(object sender, EventArgs e)
+        {
+            Types type = new Types();
+            type.Name = this.textBox1.Text.ToString();
+            dbDataContext.Types.InsertOnSubmit(type);
+            dbDataContext.SubmitChanges();
+            MessageBox.Show("Gatunek został dodany.");
         }
     }
 }

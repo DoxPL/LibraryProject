@@ -25,6 +25,11 @@ namespace Biblioteka
         private void Orders_Load(object sender, EventArgs e)
         {
             loadOrders(true);
+            if (Program.loggedUser.AdminStatus == 0)
+            {
+                this.button1.Enabled = false;
+                this.button3.Enabled = false;
+            }
         }
 
         private void loadOrders(bool selectMode)
@@ -36,6 +41,8 @@ namespace Biblioteka
                 Users user = dbDataContext.Users.Where(x => x.ID == bookRental.ReaderID).First();
                 BookCopy bookCopy = dbDataContext.BookCopies.Where(x => x.ID == bookRental.CopyID).First();
                 Books book = dbDataContext.Books.Where(x => x.ID == bookCopy.BookID).First(); //name
+                if (Program.loggedUser.AdminStatus == 0 && user.ID != Program.loggedUser.ID)
+                    continue;
                 DateTime returnDate = (DateTime) bookRental.ReturnDate;
                 bool status = (returnDate.CompareTo(today) > 0);
                 string strStatus = (bookRental.status == 1) ? (status ? "Wypożyczona" : "Nieoddana") : "Oddana";
@@ -49,6 +56,7 @@ namespace Biblioteka
                         strStatus
                     }
                 );
+                
                 this.lvItems.Items.Add(item);
             }
             this.lvItems.ListViewItemSorter = new LvComparer(0);

@@ -150,8 +150,6 @@ D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
 D:\0x0000d\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
 D:\0x0000d\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
-D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
-D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddAuthor.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddBook.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddGenre.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddPublisher.resources
@@ -166,3 +164,4 @@ D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Ca
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookListForm.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookItem.resources
 D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.XmlCreator.resources
+D:\0x0000d\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form2.resources

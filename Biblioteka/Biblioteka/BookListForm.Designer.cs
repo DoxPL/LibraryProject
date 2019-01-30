@@ -30,22 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.libraryDbDataSet = new Biblioteka.libraryDbDataSet();
-            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.booksTableAdapter = new Biblioteka.libraryDbDataSetTableAdapters.BooksTableAdapter();
+            this.lvItems = new System.Windows.Forms.ListView();
             this.cTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cPub = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cYear = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvItems = new System.Windows.Forms.ListView();
+            this.libraryDbDataSet = new Biblioteka.libraryDbDataSet();
+            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.booksTableAdapter = new Biblioteka.libraryDbDataSetTableAdapters.BooksTableAdapter();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lbUser = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
@@ -61,19 +62,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista książek";
             // 
-            // libraryDbDataSet
+            // lvItems
             // 
-            this.libraryDbDataSet.DataSetName = "libraryDbDataSet";
-            this.libraryDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // booksBindingSource
-            // 
-            this.booksBindingSource.DataMember = "Books";
-            this.booksBindingSource.DataSource = this.libraryDbDataSet;
-            // 
-            // booksTableAdapter
-            // 
-            this.booksTableAdapter.ClearBeforeFill = true;
+            this.lvItems.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.lvItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cTitle,
+            this.cDescription,
+            this.cPub,
+            this.cType,
+            this.cYear,
+            this.cID});
+            this.lvItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lvItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lvItems.FullRowSelect = true;
+            this.lvItems.GridLines = true;
+            this.lvItems.Location = new System.Drawing.Point(6, 21);
+            this.lvItems.Name = "lvItems";
+            this.lvItems.Size = new System.Drawing.Size(1014, 436);
+            this.lvItems.Sorting = System.Windows.Forms.SortOrder.Descending;
+            this.lvItems.TabIndex = 4;
+            this.lvItems.UseCompatibleStateImageBehavior = false;
+            this.lvItems.View = System.Windows.Forms.View.Details;
+            this.lvItems.SelectedIndexChanged += new System.EventHandler(this.lvItems_SelectedIndexChanged);
             // 
             // cTitle
             // 
@@ -105,28 +115,19 @@
             this.cID.Text = "Identyfikator";
             this.cID.Width = 84;
             // 
-            // lvItems
+            // libraryDbDataSet
             // 
-            this.lvItems.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.lvItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.cTitle,
-            this.cDescription,
-            this.cPub,
-            this.cType,
-            this.cYear,
-            this.cID});
-            this.lvItems.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lvItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lvItems.FullRowSelect = true;
-            this.lvItems.GridLines = true;
-            this.lvItems.Location = new System.Drawing.Point(6, 21);
-            this.lvItems.Name = "lvItems";
-            this.lvItems.Size = new System.Drawing.Size(1014, 436);
-            this.lvItems.Sorting = System.Windows.Forms.SortOrder.Descending;
-            this.lvItems.TabIndex = 4;
-            this.lvItems.UseCompatibleStateImageBehavior = false;
-            this.lvItems.View = System.Windows.Forms.View.Details;
-            this.lvItems.SelectedIndexChanged += new System.EventHandler(this.lvItems_SelectedIndexChanged);
+            this.libraryDbDataSet.DataSetName = "libraryDbDataSet";
+            this.libraryDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // booksBindingSource
+            // 
+            this.booksBindingSource.DataMember = "Books";
+            this.booksBindingSource.DataSource = this.libraryDbDataSet;
+            // 
+            // booksTableAdapter
+            // 
+            this.booksTableAdapter.ClearBeforeFill = true;
             // 
             // button4
             // 
@@ -190,11 +191,22 @@
             this.linkLabel1.Text = "Panel administracyjny";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(959, 481);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(74, 39);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Odśwież";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // BookListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1051, 526);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.lbUser);
             this.Controls.Add(this.label1);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbUser;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Button button2;
     }
 }

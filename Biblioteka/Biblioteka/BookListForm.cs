@@ -21,6 +21,8 @@ namespace Biblioteka
             lbUser.Text = (Program.loggedUser.Name + " " + Program.loggedUser.Surname);
             lbUser.Text += " (" + ((Program.loggedUser.AdminStatus == 0) ? "Czytelnik" : "Administrator") + ")";
             loadBooks();
+            if (Program.loggedUser.AdminStatus == 0)
+                this.linkLabel1.Enabled = false;
         }
 
         private ImageList loadImages()
@@ -159,6 +161,11 @@ namespace Biblioteka
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             new AdminPanel().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.lvItems.Refresh();
         }
     }
 }
