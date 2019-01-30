@@ -99,7 +99,7 @@ namespace Biblioteka
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
             clearList();
             if (selMode)
@@ -137,9 +137,15 @@ namespace Biblioteka
             return new EmailAccountModel(hostNode.InnerText, loginNode.InnerText, loginNode.InnerText, passNode.InnerText);
         }
 
+        public bool isXMLExists()       {
+            if (!File.Exists("Email.xml"))
+                return false;
+            return true;
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            if(!isXMLExists())
+            if (!isXMLExists())
             {
                 new XmlCreator().Show();
                 return;
@@ -148,7 +154,7 @@ namespace Biblioteka
             int counter = 0;
             foreach (ListViewItem item in lvItems.Items)
             {
-                if(item.Checked)
+                if (item.Checked)
                 {
                     int tmpID = int.Parse(item.Text.ToString());
                     BookRental borrowingData = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
@@ -168,13 +174,6 @@ namespace Biblioteka
                 MessageBox.Show("Wiadomość z przypomnieniem została wysłana");
             else
                 MessageBox.Show("Wysłano wiadomości z przypomnieniem");
-        }
-
-        public bool isXMLExists()
-        {
-            if (!File.Exists("Email.xml"))
-                return false;
-            return true;
         }
     }
 }

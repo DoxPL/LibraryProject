@@ -211,3 +211,12 @@ C:\LibraryProject\Biblioteka\obj\Debug\Biblioteka.Login.resources
 C:\LibraryProject\Biblioteka\obj\Debug\Biblioteka.Properties.Resources.resources
 C:\LibraryProject\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
 C:\LibraryProject\Biblioteka\obj\Debug\Biblioteka.Resources.DodajAutora.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Resources.DodajAutora.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddGenre.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddPublisher.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AdminPanel.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookItem.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookList.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.BookListForm.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Form2.resources
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.XmlCreator.resources

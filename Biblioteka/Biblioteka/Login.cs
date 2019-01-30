@@ -68,9 +68,9 @@ namespace Biblioteka
 
         }
 
-        private void Login_KeyPress(object sender, KeyPressEventArgs e)
+        private void tbPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyChar == (char)(13))
+            if (e.KeyCode == Keys.Enter)
             {
                 login();
             }

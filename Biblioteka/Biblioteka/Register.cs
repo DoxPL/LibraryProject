@@ -42,7 +42,7 @@ namespace Biblioteka
             }
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnRegister_Click_1(object sender, EventArgs e)
         {
             List<string> errList = new List<string>();
             if (!Validation.validEmail(this.tbMail.Text.ToString()))
@@ -117,5 +117,6 @@ namespace Biblioteka
                 e.Cancel = true;
             }
         }
+
     }
 }

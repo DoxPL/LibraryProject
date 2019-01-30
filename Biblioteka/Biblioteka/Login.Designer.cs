@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.button1 = new System.Windows.Forms.Button();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -44,8 +45,9 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.Maroon;
             this.button1.Location = new System.Drawing.Point(23, 241);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(510, 38);
+            this.button1.Size = new System.Drawing.Size(509, 38);
             this.button1.TabIndex = 2;
             this.button1.Text = "Zaloguj";
             this.button1.UseVisualStyleBackColor = false;
@@ -54,18 +56,21 @@
             // tbPass
             // 
             this.tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPass.Location = new System.Drawing.Point(25, 136);
+            this.tbPass.Location = new System.Drawing.Point(25, 135);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
-            this.tbPass.Size = new System.Drawing.Size(510, 43);
+            this.tbPass.Size = new System.Drawing.Size(511, 43);
             this.tbPass.TabIndex = 1;
+            this.tbPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPass_KeyDown);
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.tbEmail.Location = new System.Drawing.Point(25, 37);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(510, 43);
+            this.tbEmail.Size = new System.Drawing.Size(511, 43);
             this.tbEmail.TabIndex = 0;
             // 
             // label1
@@ -102,7 +107,8 @@
             this.panel1.Controls.Add(this.tbPass);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(178, 94);
+            this.panel1.Location = new System.Drawing.Point(179, 94);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(559, 314);
             this.panel1.TabIndex = 0;
@@ -112,7 +118,8 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(21, 195);
+            this.linkLabel1.Location = new System.Drawing.Point(21, 202);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(326, 24);
             this.linkLabel1.TabIndex = 6;
@@ -128,12 +135,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(901, 512);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
             this.Text = "Formularz logowania";
             this.Load += new System.EventHandler(this.Login_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Login_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
