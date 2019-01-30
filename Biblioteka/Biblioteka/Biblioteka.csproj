@@ -116,7 +116,9 @@
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs" />
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="libraryDbDataSet.cs">
       <DependentUpon>libraryDbDataSet.xsd</DependentUpon>
     </Compile>
@@ -146,6 +148,12 @@
     </Compile>
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
     <Compile Include="XmlCreator.cs">
@@ -178,12 +186,17 @@
     <EmbeddedResource Include="BookListForm.resx">
       <DependentUpon>BookListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx" />
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XmlCreator.resx">
       <DependentUpon>XmlCreator.cs</DependentUpon>
@@ -247,6 +260,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="panel_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\book.jpg" />
+    <Content Include="Resources\book2.jpg" />
+    <Content Include="Resources\folders2.jpg" />
+    <Content Include="Resources\maintheme.jpg" />
+    <Content Include="Resources\mainthemev2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

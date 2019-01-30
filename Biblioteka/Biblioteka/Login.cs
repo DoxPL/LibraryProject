@@ -37,7 +37,12 @@ namespace Biblioteka
                     MessageBox.Show("Zalogowano pomyślnie");
                     Program.loggedUser = dbDataContext.Users.Where(x => x.Email == mailInput).First();
                     BookListForm bookListForm = new BookListForm();
-                    bookListForm.Show();
+                    AdminPanel admin = new AdminPanel();
+
+                    if (mailInput == "root")
+                        admin.Show();
+                    else
+                        bookListForm.Show();
                 }
                 else
                 {

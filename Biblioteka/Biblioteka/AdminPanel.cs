@@ -144,5 +144,10 @@ namespace Biblioteka
         {
             new AddBook().Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new BookListForm().Show();
+        }
     }
 }

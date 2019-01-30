@@ -44,10 +44,10 @@
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.Maroon;
-            this.button1.Location = new System.Drawing.Point(23, 241);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(17, 196);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(509, 38);
+            this.button1.Size = new System.Drawing.Size(382, 31);
             this.button1.TabIndex = 2;
             this.button1.Text = "Zaloguj";
             this.button1.UseVisualStyleBackColor = false;
@@ -56,21 +56,21 @@
             // tbPass
             // 
             this.tbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbPass.Location = new System.Drawing.Point(25, 135);
-            this.tbPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPass.Location = new System.Drawing.Point(19, 110);
+            this.tbPass.Margin = new System.Windows.Forms.Padding(2);
             this.tbPass.Name = "tbPass";
             this.tbPass.PasswordChar = '*';
-            this.tbPass.Size = new System.Drawing.Size(511, 43);
+            this.tbPass.Size = new System.Drawing.Size(384, 36);
             this.tbPass.TabIndex = 1;
             this.tbPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPass_KeyDown);
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tbEmail.Location = new System.Drawing.Point(25, 37);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbEmail.Location = new System.Drawing.Point(19, 30);
+            this.tbEmail.Margin = new System.Windows.Forms.Padding(2);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(511, 43);
+            this.tbEmail.Size = new System.Drawing.Size(384, 36);
             this.tbEmail.TabIndex = 0;
             // 
             // label1
@@ -79,9 +79,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(20, 9);
+            this.label1.Location = new System.Drawing.Point(15, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(184, 25);
+            this.label1.Size = new System.Drawing.Size(147, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Nazwa użytkownika";
             // 
@@ -91,9 +92,10 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(20, 108);
+            this.label2.Location = new System.Drawing.Point(15, 88);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 25);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Hasło";
             // 
@@ -107,10 +109,10 @@
             this.panel1.Controls.Add(this.tbPass);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(179, 94);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(134, 76);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(559, 314);
+            this.panel1.Size = new System.Drawing.Size(419, 255);
             this.panel1.TabIndex = 0;
             // 
             // linkLabel1
@@ -118,10 +120,10 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(21, 202);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.linkLabel1.Location = new System.Drawing.Point(16, 158);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(326, 24);
+            this.linkLabel1.Size = new System.Drawing.Size(262, 18);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Nie masz konta? Przejdź do rejestracji";
@@ -129,14 +131,14 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Biblioteka.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(901, 512);
+            this.ClientSize = new System.Drawing.Size(676, 416);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";

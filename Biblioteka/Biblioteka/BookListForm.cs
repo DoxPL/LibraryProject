@@ -13,7 +13,7 @@ namespace Biblioteka
     public partial class BookListForm : Form
     {
         DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
-       
+
         private void List_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'libraryDbDataSet.Books' table. You can move, or remove it, as needed.
@@ -21,8 +21,6 @@ namespace Biblioteka
             lbUser.Text = (Program.loggedUser.Name + " " + Program.loggedUser.Surname);
             lbUser.Text += " (" + ((Program.loggedUser.AdminStatus == 0) ? "Czytelnik" : "Administrator") + ")";
             loadBooks();
-            if (Program.loggedUser.AdminStatus == 0)
-                this.linkLabel1.Enabled = false;
         }
 
         private ImageList loadImages()
@@ -49,7 +47,7 @@ namespace Biblioteka
             {
                 lvItems.SmallImageList = loadImages();
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
@@ -99,7 +97,7 @@ namespace Biblioteka
                     list.Add(type.Name);
                 }
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
@@ -163,7 +161,7 @@ namespace Biblioteka
             new AdminPanel().Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void refresh_Click(object sender, EventArgs e)
         {
             this.lvItems.Refresh();
         }
