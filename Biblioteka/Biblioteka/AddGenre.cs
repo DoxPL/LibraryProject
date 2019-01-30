@@ -24,6 +24,42 @@ namespace Biblioteka
 
         }
 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            List<string> errList = new List<string>();
+            if (!Validation.validName(this.textBox1.Text.ToString()))
+                errList.Add("Wprowadzono błędną nazwę gatunku.");
+
+            if (errList.Count == 0)
+            {
+                Types type = new Types();
+                type.Name = this.textBox1.Text.ToString();
+                dbDataContext.Types.InsertOnSubmit(type);
+                dbDataContext.SubmitChanges();
+                MessageBox.Show("Gatunek został dodany.");
+            }
+            else
+            {
+                string errOutput = "";
+                foreach (var errMsg in errList)
+                {
+                    errOutput += (errMsg.ToString() + "\n");
+                }
+                MessageBox.Show(errOutput);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść ?", "Zakończ", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
         private void Anuluj_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść ?", "Zakończ", MessageBoxButtons.OKCancel);

@@ -25,13 +25,37 @@ namespace Biblioteka.Resources
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Authors author = new Authors();
 
-            author.Name = this.ImieAutora.Text.ToString();
-            author.Surname = this.NazwiskoAutora.Text.ToString();
-            dbDataContext.Authors.InsertOnSubmit(author);
-            dbDataContext.SubmitChanges();
-            MessageBox.Show("Autor został dodany.");
+            List<string> errList = new List<string>();
+            if (!Validation.validName(this.ImieAutora.Text.ToString()))
+                errList.Add("Błędne imię");
+            else if (!Validation.validName(this.NazwiskoAutora.Text.ToString()))
+                errList.Add("Błędne nazwisko");
+
+            if (errList.Count == 0)
+            {
+                Authors author = new Authors();
+                author.Name = this.ImieAutora.Text.ToString();
+                author.Surname = this.NazwiskoAutora.Text.ToString();
+
+                dbDataContext.Authors.InsertOnSubmit(author);
+                dbDataContext.SubmitChanges();
+                MessageBox.Show("Autor został dodany.");
+            }
+            else
+            {
+                string errOutput = "";
+                foreach (var errMsg in errList)
+                {
+                    errOutput += (errMsg.ToString() + "\n");
+                }
+                MessageBox.Show(errOutput);
+            }
+
+
+
+
+
         }
         private void AddBook_FormClosing(object sender, FormClosingEventArgs e)
         {

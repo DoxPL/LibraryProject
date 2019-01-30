@@ -23,19 +23,39 @@ namespace Biblioteka
 
         }
 
-        private void Zatwierdz_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Publishers publisher = new Publishers();
 
-            publisher.Name = this.textBox1.Text.ToString();
-            dbDataContext.Publishers.InsertOnSubmit(publisher);
-            dbDataContext.SubmitChanges();
-            MessageBox.Show("Wydawnictwo dodane.");
+            List<string> errList = new List<string>();
+            if (!Validation.validName(this.textBox1.Text.ToString()))
+                errList.Add("Wprowadzono błędną nazwę wydawnictwa.");
+
+            if (errList.Count == 0)
+            {
+                Publishers publisher = new Publishers();
+                publisher.Name = this.textBox1.Text.ToString();
+                dbDataContext.Publishers.InsertOnSubmit(publisher);
+                dbDataContext.SubmitChanges();
+                MessageBox.Show("Wydawnictwo dodane.");
+            }
+            else
+            {
+                string errOutput = "";
+                foreach (var errMsg in errList)
+                {
+                    errOutput += (errMsg.ToString() + "\n");
+                }
+                MessageBox.Show(errOutput);
+            }
         }
 
-        private void Anuluj_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść ?", "Zakończ", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
     }
 }

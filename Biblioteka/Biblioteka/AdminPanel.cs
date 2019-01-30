@@ -36,18 +36,17 @@ namespace Biblioteka
 
         }
 
-        private void addBookButton_Click(object sender, EventArgs e)
+        private void DodajUzytkownika_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
             form2.button1.Visible = true;
             form2.button2.Visible = false;
-
         }
 
-        public void addAuthorButton_Click(object sender, EventArgs e)
+        public void DeleteUser_Click(object sender, EventArgs e) //usun uzytkownika
         {
-            DialogResult dialogResult = MessageBox.Show("Tak", "Na pewno chcesz usunąć użytkownika?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Na pewno chcesz usunąć użytkownika?", "Potwierdź usunięcie użytkownika", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 foreach (DataGridViewRow item in this.dataGridView1.SelectedRows)
@@ -63,7 +62,7 @@ namespace Biblioteka
                         dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
                         cmd.ExecuteNonQuery();
                         conn.Close();
-
+                        Wyswietl_Click(sender, e);
                     }
 
                 }
@@ -78,7 +77,7 @@ namespace Biblioteka
 
         }
 
-        private void addGenreButton_Click(object sender, EventArgs e)
+        private void addGenreButton_Click(object sender, EventArgs e) //edytuj uzytkownika;
         {
             Form2 form2 = new Form2();
 
@@ -92,7 +91,7 @@ namespace Biblioteka
             form2.textBox7.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
             form2.textBox8.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
             form2.textBox9.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-            form2.textBox10.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            //form2.textBox10.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
             form2.textBox11.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
 
             form2.Show();
@@ -110,7 +109,7 @@ namespace Biblioteka
            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void Wyswietl_Click(object sender, EventArgs e)
         {
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -122,20 +121,26 @@ namespace Biblioteka
             dataAdapter.Fill(dta);
             dataGridView1.DataSource = dta;
             conn.Close();
-            
+            addBookButton.Enabled = true;
+            addAuthorButton.Enabled = true;
+            addGenreButton.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            wyswietl.Text = "Odśwież";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e) // dodaj wydawnictwo
         {
             new AddPublisher().Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //dodaj gatunek
         {
             new AddGenre().Show();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e) //dodaj ksiazke
         {
             new AddBook().Show();
         }
