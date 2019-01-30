@@ -154,6 +154,9 @@
     <Compile Include="XmlCreator.Designer.cs">
       <DependentUpon>XmlCreator.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddAuthor.resx">
+      <DependentUpon>AddAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>

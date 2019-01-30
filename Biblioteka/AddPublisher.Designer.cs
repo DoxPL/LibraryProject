@@ -28,72 +28,99 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Zatwierdz = new System.Windows.Forms.Button();
-            this.Anuluj = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nazwa nowego wydawnictwa: ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 52);
+            this.textBox1.Location = new System.Drawing.Point(84, 104);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
+            this.textBox1.Size = new System.Drawing.Size(258, 20);
             this.textBox1.TabIndex = 1;
             // 
-            // Zatwierdz
+            // label3
             // 
-            this.Zatwierdz.Location = new System.Drawing.Point(40, 98);
-            this.Zatwierdz.Name = "Zatwierdz";
-            this.Zatwierdz.Size = new System.Drawing.Size(75, 23);
-            this.Zatwierdz.TabIndex = 2;
-            this.Zatwierdz.Text = "Zatwierdź";
-            this.Zatwierdz.UseVisualStyleBackColor = true;
-            this.Zatwierdz.Click += new System.EventHandler(this.Zatwierdz_Click);
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label3.Location = new System.Drawing.Point(25, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(376, 29);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Dodawanie nowego wydawnictwa";
             // 
-            // Anuluj
+            // label2
             // 
-            this.Anuluj.Location = new System.Drawing.Point(121, 98);
-            this.Anuluj.Name = "Anuluj";
-            this.Anuluj.Size = new System.Drawing.Size(75, 23);
-            this.Anuluj.TabIndex = 3;
-            this.Anuluj.Text = "Anuluj";
-            this.Anuluj.UseVisualStyleBackColor = true;
-            this.Anuluj.Click += new System.EventHandler(this.Anuluj_Click);
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.label2.Location = new System.Drawing.Point(80, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(272, 24);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Nazwa nowego wydawnictwa:  ";
             // 
-            // DodajWydawnictwo
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.BackColor = System.Drawing.Color.ForestGreen;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(79, 151);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 36);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Zatwierdź";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button3.BackColor = System.Drawing.Color.Tomato;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Location = new System.Drawing.Point(237, 151);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(125, 36);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Anuluj";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // AddPublisher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Biblioteka.Properties.Resources.bg;
-            this.ClientSize = new System.Drawing.Size(236, 174);
-            this.Controls.Add(this.Anuluj);
-            this.Controls.Add(this.Zatwierdz);
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.ClientSize = new System.Drawing.Size(432, 223);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Name = "DodajWydawnictwo";
-            this.Text = "DodajWydawnictwo";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.Name = "AddPublisher";
+            this.Text = "Dodawanie wydawnictwa";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button Zatwierdz;
-        private System.Windows.Forms.Button Anuluj;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
     }
 }

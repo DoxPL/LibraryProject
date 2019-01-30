@@ -28,9 +28,9 @@ namespace Biblioteka.Resources
 
             List<string> errList = new List<string>();
             if (!Validation.validName(this.ImieAutora.Text.ToString()))
-                errList.Add("Błędna nazwa");
+                errList.Add("Błędne imię");
             else if (!Validation.validName(this.NazwiskoAutora.Text.ToString()))
-                errList.Add("Błędna nazwa");
+                errList.Add("Błędne nazwisko");
 
             if (errList.Count == 0)
             {
