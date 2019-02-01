@@ -22,8 +22,8 @@
       <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="AuthorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="BookID" Type="System.Int32" CanBeNull="false" />
-      <Association Name="Writing_Authors" Member="Authors" ThisKey="AuthorID" OtherKey="ID" Type="Authors" />
-      <Association Name="Writing_Books" Member="Books" ThisKey="BookID" OtherKey="ID" Type="Books" />
+      <Association Name="Books_Writing" Member="Books" ThisKey="BookID" OtherKey="ID" Type="Books" IsForeignKey="true" />
+      <Association Name="Authors_Writing" Member="Authors" ThisKey="AuthorID" OtherKey="ID" Type="Authors" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Authors" Member="Authors">
@@ -31,7 +31,7 @@
       <Column Name="Id" Member="ID" Storage="_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Writing_Authors" Member="Writing" ThisKey="ID" OtherKey="AuthorID" Type="Writing" IsForeignKey="true" />
+      <Association Name="Authors_Writing" Member="Writings" ThisKey="ID" OtherKey="AuthorID" Type="Writing" />
     </Type>
   </Table>
   <Table Name="dbo.Types" Member="Types">
@@ -50,9 +50,9 @@
       <Column Name="publisherId" Member="PublisherID" Storage="_publisherId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ImageLocation" Type="System.String" CanBeNull="false" />
       <Association Name="Books_BookTypes" Member="BookTypes" ThisKey="ID" OtherKey="BookID" Type="BookTypes" />
+      <Association Name="Books_Writing" Member="Writings" ThisKey="ID" OtherKey="BookID" Type="Writing" />
       <Association Name="Publishers_Books" Member="Publishers" Storage="_Publisher" ThisKey="PublisherID" OtherKey="ID" Type="Publishers" IsForeignKey="true" />
       <Association Name="BookCopy_Books" Member="BookCopy" ThisKey="ID" OtherKey="BookID" Type="BookCopy" IsForeignKey="true" />
-      <Association Name="Writing_Books" Member="Writing" ThisKey="ID" OtherKey="BookID" Type="Writing" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Publishers" Member="Publishers">

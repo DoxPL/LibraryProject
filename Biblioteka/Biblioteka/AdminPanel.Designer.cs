@@ -53,6 +53,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.btnAuthor = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
@@ -87,7 +88,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(2, 13);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1178, 320);
+            this.dataGridView1.Size = new System.Drawing.Size(1362, 320);
             this.dataGridView1.TabIndex = 5;
             // 
             // iDDataGridViewTextBoxColumn
@@ -179,7 +180,7 @@
             this.addGenreButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addGenreButton.Enabled = false;
             this.addGenreButton.ForeColor = System.Drawing.Color.Indigo;
-            this.addGenreButton.Location = new System.Drawing.Point(466, 353);
+            this.addGenreButton.Location = new System.Drawing.Point(455, 352);
             this.addGenreButton.Name = "addGenreButton";
             this.addGenreButton.Size = new System.Drawing.Size(124, 43);
             this.addGenreButton.TabIndex = 3;
@@ -194,7 +195,7 @@
             this.addBookButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addBookButton.Enabled = false;
             this.addBookButton.ForeColor = System.Drawing.Color.Indigo;
-            this.addBookButton.Location = new System.Drawing.Point(221, 353);
+            this.addBookButton.Location = new System.Drawing.Point(210, 352);
             this.addBookButton.Name = "addBookButton";
             this.addBookButton.Size = new System.Drawing.Size(116, 44);
             this.addBookButton.TabIndex = 1;
@@ -209,7 +210,7 @@
             this.addAuthorButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addAuthorButton.Enabled = false;
             this.addAuthorButton.ForeColor = System.Drawing.Color.Indigo;
-            this.addAuthorButton.Location = new System.Drawing.Point(343, 353);
+            this.addAuthorButton.Location = new System.Drawing.Point(332, 352);
             this.addAuthorButton.Name = "addAuthorButton";
             this.addAuthorButton.Size = new System.Drawing.Size(117, 43);
             this.addAuthorButton.TabIndex = 2;
@@ -224,7 +225,7 @@
             this.wyswietl.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.wyswietl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.wyswietl.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.wyswietl.Location = new System.Drawing.Point(41, 351);
+            this.wyswietl.Location = new System.Drawing.Point(30, 350);
             this.wyswietl.Name = "wyswietl";
             this.wyswietl.Size = new System.Drawing.Size(139, 44);
             this.wyswietl.TabIndex = 6;
@@ -239,7 +240,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Enabled = false;
             this.button1.ForeColor = System.Drawing.Color.OrangeRed;
-            this.button1.Location = new System.Drawing.Point(622, 353);
+            this.button1.Location = new System.Drawing.Point(611, 352);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(139, 41);
@@ -255,7 +256,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Enabled = false;
             this.button2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.button2.Location = new System.Drawing.Point(765, 353);
+            this.button2.Location = new System.Drawing.Point(897, 352);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(139, 41);
@@ -271,7 +272,7 @@
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Enabled = false;
             this.button3.ForeColor = System.Drawing.Color.OrangeRed;
-            this.button3.Location = new System.Drawing.Point(908, 352);
+            this.button3.Location = new System.Drawing.Point(1040, 351);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 42);
@@ -286,7 +287,7 @@
             this.button4.BackColor = System.Drawing.Color.PaleGoldenrod;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.ForeColor = System.Drawing.Color.OrangeRed;
-            this.button4.Location = new System.Drawing.Point(1051, 352);
+            this.button4.Location = new System.Drawing.Point(1183, 351);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(104, 41);
@@ -295,12 +296,29 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // btnAuthor
+            // 
+            this.btnAuthor.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAuthor.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.btnAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAuthor.Enabled = false;
+            this.btnAuthor.ForeColor = System.Drawing.Color.OrangeRed;
+            this.btnAuthor.Location = new System.Drawing.Point(754, 352);
+            this.btnAuthor.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAuthor.Name = "btnAuthor";
+            this.btnAuthor.Size = new System.Drawing.Size(139, 41);
+            this.btnAuthor.TabIndex = 11;
+            this.btnAuthor.Text = "Dodaj autora";
+            this.btnAuthor.UseVisualStyleBackColor = false;
+            this.btnAuthor.Click += new System.EventHandler(this.button5_Click);
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(1202, 421);
+            this.ClientSize = new System.Drawing.Size(1386, 421);
+            this.Controls.Add(this.btnAuthor);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -346,5 +364,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adminStatusDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAuthor;
     }
 }

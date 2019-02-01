@@ -1,6 +1,6 @@
 ﻿namespace Biblioteka.Resources
 {
-    partial class DodajAutora
+    partial class AddAuthor
     {
         /// <summary>
         /// Required designer variable.

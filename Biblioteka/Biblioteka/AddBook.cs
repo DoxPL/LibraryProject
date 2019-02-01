@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteka.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,10 @@ namespace Biblioteka
             listBoxTypes.Items.AddRange(dbDataContext.Types.ToArray());
             listBoxTypes.DisplayMember = "Name";
 
+            lbAuthors.Items.AddRange(dbDataContext.Authors.ToArray());
+            lbAuthors.DisplayMember = "Surname";
+           
+
             int[] years = new int[2019];
             for (int i = 1; i < years.Length; i++)
             {
@@ -46,10 +51,10 @@ namespace Biblioteka
             List<string> errList = new List<string>();
             if (!Validation.validTitle(this.tbTitle.Text.ToString()))
                 errList.Add("Nieprawidłowy tytuł. Można używać tylko liter.");
-            else if (!Validation.validName(this.tbAuthorName.Text.ToString()))
+            /*else if (!Validation.validName(this.tbAuthorName.Text.ToString()))
                 errList.Add("Nieprawidłowe imię");
             else if (!Validation.validName(this.tbAuthorSurname.Text.ToString()))
-                errList.Add("Nieprawidłowe nazwisko");
+                errList.Add("Nieprawidłowe nazwisko"); */
             else if (!Validation.validYear(this.comboBoxYears.Text.ToString()))
                 errList.Add("Nieprawidłowy rok. Należy wpisać rok od 1 do 2019. Należy używać tylko cyfr.");
             else if (comboBoxYears.Text != "")
@@ -71,8 +76,8 @@ namespace Biblioteka
                 Authors author = new Authors();
 
                 book.Title = this.tbTitle.Text.ToString();
-                author.Name = this.tbAuthorName.Text.ToString();
-                author.Surname = this.tbAuthorSurname.Text.ToString();
+                /*author.Name = this.tbAuthorName.Text.ToString();
+                author.Surname = this.tbAuthorSurname.Text.ToString(); */
                 book.Year = int.Parse(this.comboBoxYears.Text.ToString());
 
                 book.Description = this.tbDescription.Text.ToString();
@@ -94,6 +99,13 @@ namespace Biblioteka
                     BookTypes bt = new BookTypes();
                     bt.Books = book;
                     bt.Types = t;
+                }
+
+                foreach (Authors a in lbAuthors.SelectedItems)
+                {
+                    Writing writing = new Writing();
+                    writing.Books = book;
+                    writing.Authors = a;
                 }
 
                 dbDataContext.Books.InsertOnSubmit(book);
@@ -155,6 +167,16 @@ namespace Biblioteka
         private void comboBoxYears_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

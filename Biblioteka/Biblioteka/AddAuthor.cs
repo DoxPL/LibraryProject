@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Biblioteka.Resources
 {
-    public partial class DodajAutora : Form
+    public partial class AddAuthor : Form
     {
         DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
-        public DodajAutora()
+        public AddAuthor()
         {
             InitializeComponent();
         }

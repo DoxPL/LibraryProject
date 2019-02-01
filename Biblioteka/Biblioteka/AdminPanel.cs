@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteka.Resources;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -80,7 +81,7 @@ namespace Biblioteka
         private void addGenreButton_Click(object sender, EventArgs e) //edytuj uzytkownika;
         {
             Form2 form2 = new Form2();
-
+            
             form2.label12.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             form2.textBox1.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             form2.textBox2.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -122,7 +123,8 @@ namespace Biblioteka
             dataGridView1.DataSource = dta;
             conn.Close();
             addBookButton.Enabled = true;
-            addAuthorButton.Enabled = true;
+           // addAuthorButton.Enabled = true;
+            btnAuthor.Enabled = true;
             addGenreButton.Enabled = true;
             button1.Enabled = true;
             button2.Enabled = true;
@@ -148,6 +150,11 @@ namespace Biblioteka
         private void button4_Click(object sender, EventArgs e)
         {
             new BookListForm().Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new AddAuthor().Show();
         }
     }
 }

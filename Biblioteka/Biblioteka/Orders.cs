@@ -82,16 +82,21 @@ namespace Biblioteka
                 {
                     item.Remove();
                     int tmpID = int.Parse(item.Text.ToString());
-                    
+                    try
+                    {
                         BookRental dbObject = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
                         BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == dbObject.CopyID).First();
                         bc.Free = 1;
-                        dbObject.ReturnDate = (DateTime?) DateTime.Now;
+                        dbObject.ReturnDate = (DateTime?)DateTime.Now;
                         dbObject.status = 0;
                         dbDataContext.SubmitChanges();
                         int elementIndex = BookListForm.items.FindIndex(x => x.SubItems[0].Text == item.SubItems[4].Text);
                         BookListForm.items[elementIndex].SubItems[6].Text = (int.Parse(BookListForm.items[elementIndex].SubItems[6].Text) + 1).ToString();
-                   
+                    }
+                    catch(Exception exc)
+                    {
+                        MessageBox.Show(exc.Message);
+                    }
                 }
             }
         }
@@ -129,7 +134,6 @@ namespace Biblioteka
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("Email.xml");
-            string path = "data/host";
             XmlNode hostNode = xmlDoc.DocumentElement.SelectSingleNode("data/host");
             XmlNode loginNode = xmlDoc.DocumentElement.SelectSingleNode("data/login");
             XmlNode passNode = xmlDoc.DocumentElement.SelectSingleNode("data/pass");

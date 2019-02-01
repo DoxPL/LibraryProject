@@ -201,7 +201,6 @@ C:\LibraryProject\Biblioteka\obj\Debug\Biblioteka.Resources.DodajAutora.resource
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe.config
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.exe
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\bin\Debug\Biblioteka.pdb
-D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Resources.DodajAutora.resources
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddBook.resources
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddGenre.resources
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.AddPublisher.resources
@@ -220,4 +219,4 @@ D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Properti
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csproj.GenerateResource.Cache
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.exe
 D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.pdb
-D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.csprojResolveAssemblyReference.cache
+D:\Biblioteka\LibraryProject\Biblioteka\Biblioteka\obj\Debug\Biblioteka.Resources.AddAuthor.resources
