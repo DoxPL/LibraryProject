@@ -13,7 +13,7 @@ namespace Biblioteka
     public partial class BookListForm : Form
     {
         DataClasses1DataContext dbDataContext = new DataClasses1DataContext();
-        List<ListViewItem> items = new List<ListViewItem>();
+        public static List<ListViewItem> items = new List<ListViewItem>();
 
         private void List_Load(object sender, EventArgs e)
         {
@@ -170,6 +170,7 @@ namespace Biblioteka
                     BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == freeCopy).First();
                     bc.Free = 0;
                     dbDataContext.SubmitChanges();
+                    item.SubItems[6].Text = (int.Parse(item.SubItems[6].Text) - 1).ToString();
                     MessageBox.Show("Wypożyczono: " + book.Title);
                 }
             }
@@ -205,6 +206,8 @@ namespace Biblioteka
 
         private void refresh_Click(object sender, EventArgs e)
         {
+            this.lvItems.Items.Clear();
+            this.lvItems.Items.AddRange(items.ToArray());
             this.lvItems.Refresh();
         }
 
@@ -212,11 +215,18 @@ namespace Biblioteka
         {
             this.lvItems.Items.Clear();
           
-            foreach (ListViewItem item in this.items)
+            foreach (ListViewItem item in items)
             {
-                if (item.SubItems[this.comboBox1.SelectedIndex].Text.ToString().ToLower().Contains(this.textBox1.Text.ToString().ToLower()))
+                try
                 {
-                    this.lvItems.Items.Add(item);
+                    if (item.SubItems[this.comboBox1.SelectedIndex].Text.ToString().ToLower().Contains(this.textBox1.Text.ToString().ToLower()))
+                    {
+                        this.lvItems.Items.Add(item);
+                    }
+                }
+                catch(IndexOutOfRangeException exc)
+                {
+                    MessageBox.Show(exc.Message);
                 }
             }
         }

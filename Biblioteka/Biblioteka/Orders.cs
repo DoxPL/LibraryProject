@@ -82,19 +82,16 @@ namespace Biblioteka
                 {
                     item.Remove();
                     int tmpID = int.Parse(item.Text.ToString());
-                    try
-                    {
+                    
                         BookRental dbObject = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
                         BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == dbObject.CopyID).First();
                         bc.Free = 1;
                         dbObject.ReturnDate = (DateTime?) DateTime.Now;
                         dbObject.status = 0;
                         dbDataContext.SubmitChanges();
-                    }
-                    catch(Exception exc)
-                    {
-                        MessageBox.Show(exc.Message);
-                    }
+                        int elementIndex = BookListForm.items.FindIndex(x => x.SubItems[0].Text == item.SubItems[4].Text);
+                        BookListForm.items[elementIndex].SubItems[6].Text = (int.Parse(BookListForm.items[elementIndex].SubItems[6].Text) + 1).ToString();
+                   
                 }
             }
         }
@@ -108,6 +105,7 @@ namespace Biblioteka
                 loadOrders(false);
                 button1.Enabled = false;
                 button3.Enabled = false;
+                button2.Text = "Pokaż nieoddane";
             }
             else
             {
@@ -115,6 +113,7 @@ namespace Biblioteka
                 loadOrders(true);
                 button1.Enabled = true;
                 button3.Enabled = true;
+                button2.Text = "Pokaż oddane";
             }
         }
 
