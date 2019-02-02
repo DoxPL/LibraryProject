@@ -52,29 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAuthor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddAuthor.Designer.cs">
-      <DependentUpon>AddAuthor.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddBook.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddBook.Designer.cs">
       <DependentUpon>AddBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddGenre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddGenre.Designer.cs">
-      <DependentUpon>AddGenre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddPublisher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddPublisher.Designer.cs">
-      <DependentUpon>AddPublisher.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminPanel.cs">
       <SubType>Form</SubType>
@@ -82,28 +64,22 @@
     <Compile Include="AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookItem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="BookItem.Designer.cs">
-      <DependentUpon>BookItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BookList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookList.Designer.cs">
-      <DependentUpon>BookList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BookListForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookListForm.Designer.cs">
-      <DependentUpon>BookListForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataClasses1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DodajGatunek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajGatunek.Designer.cs">
+      <DependentUpon>DodajGatunek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajWydawnictwo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajWydawnictwo.Designer.cs">
+      <DependentUpon>DodajWydawnictwo.cs</DependentUpon>
     </Compile>
     <Compile Include="EmailAccountModel.cs" />
     <Compile Include="EmailSender.cs" />
@@ -112,12 +88,6 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="libraryDbDataSet.cs">
       <DependentUpon>libraryDbDataSet.xsd</DependentUpon>
@@ -149,45 +119,24 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchForm.cs">
+    <Compile Include="DodajAutora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchForm.Designer.cs">
-      <DependentUpon>SearchForm.cs</DependentUpon>
+    <Compile Include="DodajAutora.Designer.cs">
+      <DependentUpon>DodajAutora.cs</DependentUpon>
     </Compile>
     <Compile Include="Validation.cs" />
-    <Compile Include="XmlCreator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XmlCreator.Designer.cs">
-      <DependentUpon>XmlCreator.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddAuthor.resx">
-      <DependentUpon>AddAuthor.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddBook.resx">
       <DependentUpon>AddBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddGenre.resx">
-      <DependentUpon>AddGenre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddPublisher.resx">
-      <DependentUpon>AddPublisher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookItem.resx">
-      <DependentUpon>BookItem.cs</DependentUpon>
+    <EmbeddedResource Include="DodajGatunek.resx">
+      <DependentUpon>DodajGatunek.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookList.resx">
-      <DependentUpon>BookList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BookListForm.resx">
-      <DependentUpon>BookListForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="DodajWydawnictwo.resx">
+      <DependentUpon>DodajWydawnictwo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
@@ -195,11 +144,8 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchForm.resx">
-      <DependentUpon>SearchForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XmlCreator.resx">
-      <DependentUpon>XmlCreator.cs</DependentUpon>
+    <EmbeddedResource Include="DodajAutora.resx">
+      <DependentUpon>DodajAutora.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
@@ -260,13 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="panel_bg.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\book.jpg" />
-    <Content Include="Resources\book2.jpg" />
-    <Content Include="Resources\folders2.jpg" />
-    <Content Include="Resources\maintheme.jpg" />
-    <Content Include="Resources\mainthemev2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

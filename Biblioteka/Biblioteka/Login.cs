@@ -36,13 +36,8 @@ namespace Biblioteka
                     this.Hide();
                     MessageBox.Show("Zalogowano pomyślnie");
                     Program.loggedUser = dbDataContext.Users.Where(x => x.Email == mailInput).First();
-                    BookListForm bookListForm = new BookListForm();
-                    AdminPanel admin = new AdminPanel();
-
-                    if (mailInput == "root")
-                        admin.Show();
-                    else
-                        bookListForm.Show();
+                    Form1 form = new Form1();
+                    form.Show();
                 }
                 else
                 {
@@ -73,17 +68,12 @@ namespace Biblioteka
 
         }
 
-        private void tbPass_KeyDown(object sender, KeyEventArgs e)
+        private void Login_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyChar == (char)(13))
             {
                 login();
             }
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            new Register().Show();
         }
     }
 }

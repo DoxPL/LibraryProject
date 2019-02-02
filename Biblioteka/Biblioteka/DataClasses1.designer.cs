@@ -537,9 +537,9 @@ namespace Biblioteka
 		
 		private int _BookID;
 		
-		private EntityRef<Books> _Books;
+		private EntitySet<Authors> _Authors;
 		
-		private EntityRef<Authors> _Authors;
+		private EntitySet<Books> _Books;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -555,8 +555,8 @@ namespace Biblioteka
 		
 		public Writing()
 		{
-			this._Books = default(EntityRef<Books>);
-			this._Authors = default(EntityRef<Authors>);
+			this._Authors = new EntitySet<Authors>(new Action<Authors>(this.attach_Authors), new Action<Authors>(this.detach_Authors));
+			this._Books = new EntitySet<Books>(new Action<Books>(this.attach_Books), new Action<Books>(this.detach_Books));
 			OnCreated();
 		}
 		
@@ -591,10 +591,6 @@ namespace Biblioteka
 			{
 				if ((this._AuthorID != value))
 				{
-					if (this._Authors.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnAuthorIDChanging(value);
 					this.SendPropertyChanging();
 					this._AuthorID = value;
@@ -615,10 +611,6 @@ namespace Biblioteka
 			{
 				if ((this._BookID != value))
 				{
-					if (this._Books.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnBookIDChanging(value);
 					this.SendPropertyChanging();
 					this._BookID = value;
@@ -628,71 +620,29 @@ namespace Biblioteka
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Books_Writing", Storage="_Books", ThisKey="BookID", OtherKey="ID", IsForeignKey=true)]
-		public Books Books
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Writing_Authors", Storage="_Authors", ThisKey="AuthorID", OtherKey="ID")]
+		public EntitySet<Authors> Authors
 		{
 			get
 			{
-				return this._Books.Entity;
+				return this._Authors;
 			}
 			set
 			{
-				Books previousValue = this._Books.Entity;
-				if (((previousValue != value) 
-							|| (this._Books.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Books.Entity = null;
-						previousValue.Writings.Remove(this);
-					}
-					this._Books.Entity = value;
-					if ((value != null))
-					{
-						value.Writings.Add(this);
-						this._BookID = value.ID;
-					}
-					else
-					{
-						this._BookID = default(int);
-					}
-					this.SendPropertyChanged("Books");
-				}
+				this._Authors.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Authors_Writing", Storage="_Authors", ThisKey="AuthorID", OtherKey="ID", IsForeignKey=true)]
-		public Authors Authors
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Writing_Books", Storage="_Books", ThisKey="BookID", OtherKey="ID")]
+		public EntitySet<Books> Books
 		{
 			get
 			{
-				return this._Authors.Entity;
+				return this._Books;
 			}
 			set
 			{
-				Authors previousValue = this._Authors.Entity;
-				if (((previousValue != value) 
-							|| (this._Authors.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Authors.Entity = null;
-						previousValue.Writings.Remove(this);
-					}
-					this._Authors.Entity = value;
-					if ((value != null))
-					{
-						value.Writings.Add(this);
-						this._AuthorID = value.ID;
-					}
-					else
-					{
-						this._AuthorID = default(int);
-					}
-					this.SendPropertyChanged("Authors");
-				}
+				this._Books.Assign(value);
 			}
 		}
 		
@@ -715,6 +665,30 @@ namespace Biblioteka
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Authors(Authors entity)
+		{
+			this.SendPropertyChanging();
+			entity.Writing = this;
+		}
+		
+		private void detach_Authors(Authors entity)
+		{
+			this.SendPropertyChanging();
+			entity.Writing = null;
+		}
+		
+		private void attach_Books(Books entity)
+		{
+			this.SendPropertyChanging();
+			entity.Writing = this;
+		}
+		
+		private void detach_Books(Books entity)
+		{
+			this.SendPropertyChanging();
+			entity.Writing = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Authors")]
@@ -729,7 +703,7 @@ namespace Biblioteka
 		
 		private string _Surname;
 		
-		private EntitySet<Writing> _Writings;
+		private EntityRef<Writing> _Writing;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -745,7 +719,7 @@ namespace Biblioteka
 		
 		public Authors()
 		{
-			this._Writings = new EntitySet<Writing>(new Action<Writing>(this.attach_Writings), new Action<Writing>(this.detach_Writings));
+			this._Writing = default(EntityRef<Writing>);
 			OnCreated();
 		}
 		
@@ -809,16 +783,37 @@ namespace Biblioteka
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Authors_Writing", Storage="_Writings", ThisKey="ID", OtherKey="AuthorID")]
-		public EntitySet<Writing> Writings
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Writing_Authors", Storage="_Writing", ThisKey="ID", OtherKey="AuthorID", IsForeignKey=true)]
+		public Writing Writing
 		{
 			get
 			{
-				return this._Writings;
+				return this._Writing.Entity;
 			}
 			set
 			{
-				this._Writings.Assign(value);
+				Writing previousValue = this._Writing.Entity;
+				if (((previousValue != value) 
+							|| (this._Writing.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Writing.Entity = null;
+						previousValue.Authors.Remove(this);
+					}
+					this._Writing.Entity = value;
+					if ((value != null))
+					{
+						value.Authors.Add(this);
+						this._Id = value.AuthorID;
+					}
+					else
+					{
+						this._Id = default(int);
+					}
+					this.SendPropertyChanged("Writing");
+				}
 			}
 		}
 		
@@ -840,18 +835,6 @@ namespace Biblioteka
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Writings(Writing entity)
-		{
-			this.SendPropertyChanging();
-			entity.Authors = this;
-		}
-		
-		private void detach_Writings(Writing entity)
-		{
-			this.SendPropertyChanging();
-			entity.Authors = null;
 		}
 	}
 	
@@ -989,11 +972,11 @@ namespace Biblioteka
 		
 		private EntitySet<BookTypes> _BookTypes;
 		
-		private EntitySet<Writing> _Writings;
-		
 		private EntityRef<Publishers> _Publisher;
 		
 		private EntityRef<BookCopy> _BookCopy;
+		
+		private EntityRef<Writing> _Writing;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1016,9 +999,9 @@ namespace Biblioteka
 		public Books()
 		{
 			this._BookTypes = new EntitySet<BookTypes>(new Action<BookTypes>(this.attach_BookTypes), new Action<BookTypes>(this.detach_BookTypes));
-			this._Writings = new EntitySet<Writing>(new Action<Writing>(this.attach_Writings), new Action<Writing>(this.detach_Writings));
 			this._Publisher = default(EntityRef<Publishers>);
 			this._BookCopy = default(EntityRef<BookCopy>);
+			this._Writing = default(EntityRef<Writing>);
 			OnCreated();
 		}
 		
@@ -1155,19 +1138,6 @@ namespace Biblioteka
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Books_Writing", Storage="_Writings", ThisKey="ID", OtherKey="BookID")]
-		public EntitySet<Writing> Writings
-		{
-			get
-			{
-				return this._Writings;
-			}
-			set
-			{
-				this._Writings.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Publishers_Books", Storage="_Publisher", ThisKey="PublisherID", OtherKey="ID", IsForeignKey=true)]
 		public Publishers Publishers
 		{
@@ -1236,6 +1206,40 @@ namespace Biblioteka
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Writing_Books", Storage="_Writing", ThisKey="ID", OtherKey="BookID", IsForeignKey=true)]
+		public Writing Writing
+		{
+			get
+			{
+				return this._Writing.Entity;
+			}
+			set
+			{
+				Writing previousValue = this._Writing.Entity;
+				if (((previousValue != value) 
+							|| (this._Writing.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Writing.Entity = null;
+						previousValue.Books.Remove(this);
+					}
+					this._Writing.Entity = value;
+					if ((value != null))
+					{
+						value.Books.Add(this);
+						this._Id = value.BookID;
+					}
+					else
+					{
+						this._Id = default(int);
+					}
+					this.SendPropertyChanged("Writing");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1263,18 +1267,6 @@ namespace Biblioteka
 		}
 		
 		private void detach_BookTypes(BookTypes entity)
-		{
-			this.SendPropertyChanging();
-			entity.Books = null;
-		}
-		
-		private void attach_Writings(Writing entity)
-		{
-			this.SendPropertyChanging();
-			entity.Books = this;
-		}
-		
-		private void detach_Writings(Writing entity)
 		{
 			this.SendPropertyChanging();
 			entity.Books = null;

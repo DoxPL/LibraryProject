@@ -45,19 +45,18 @@ namespace Biblioteka
         private void btnRegister_Click(object sender, EventArgs e)
         {
             List<string> errList = new List<string>();
-            
-            if (!Validation.validName(this.tbName.Text.ToString()))
-                errList.Add("Błędna nazwa");
-            else if (!Validation.validStreet(this.tbStreet.Text.ToString()))
-                errList.Add("Podana ulica jest nieprawidłowa");
-            else if (!Validation.validPostcode(this.tbPostCode.Text.ToString()))
-                errList.Add("Nieprawidłowy kod pocztowy");
-            else if (!Validation.validEmail(this.tbMail.Text.ToString()))
+            if (!Validation.validEmail(this.tbMail.Text.ToString()))
                 errList.Add("Nieprawidłowy adres e-mail");
-            else if (!Validation.validPhoneNumber(this.tbPhone.Text.ToString()))
-                errList.Add("Nieprawidłowy numer telefonu");
             else if (!Validation.validPassword(this.tbPassword.Text.ToString()) && !rndPassword)
                 errList.Add("Hasło musi mieć przynajmniej dwie liczby oraz jedną dużą literę");
+            else if (!Validation.validPostcode(this.tbPostCode.Text.ToString()))
+                errList.Add("Nieprawidłowy kod pocztowy");
+            else if (!Validation.validStreet(this.tbStreet.Text.ToString()))
+                errList.Add("Podana ulica jest nieprawidłowa");
+            else if (!Validation.validPhoneNumber(this.tbPhone.Text.ToString()))
+                errList.Add("Nieprawidłowy numer telefonu");
+            else if (!Validation.validName(this.tbName.Text.ToString()))
+                errList.Add("Błędna nazwa");
 
             if (errList.Count == 0)
             {
@@ -103,6 +102,20 @@ namespace Biblioteka
         private void Register_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Register_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Czy na pewno chcesz wyjść?", "Zakończ", MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.Yes)
+            {
+                Close();
+            }
+            if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

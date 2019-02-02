@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace Biblioteka
 {
@@ -25,11 +22,6 @@ namespace Biblioteka
         private void Orders_Load(object sender, EventArgs e)
         {
             loadOrders(true);
-            if (Program.loggedUser.AdminStatus == 0)
-            {
-                this.button1.Enabled = false;
-                this.button3.Enabled = false;
-            }
         }
 
         private void loadOrders(bool selectMode)
@@ -41,8 +33,6 @@ namespace Biblioteka
                 Users user = dbDataContext.Users.Where(x => x.ID == bookRental.ReaderID).First();
                 BookCopy bookCopy = dbDataContext.BookCopies.Where(x => x.ID == bookRental.CopyID).First();
                 Books book = dbDataContext.Books.Where(x => x.ID == bookCopy.BookID).First(); //name
-                if (Program.loggedUser.AdminStatus == 0 && user.ID != Program.loggedUser.ID)
-                    continue;
                 DateTime returnDate = (DateTime) bookRental.ReturnDate;
                 bool status = (returnDate.CompareTo(today) > 0);
                 string strStatus = (bookRental.status == 1) ? (status ? "Wypożyczona" : "Nieoddana") : "Oddana";
@@ -56,7 +46,6 @@ namespace Biblioteka
                         strStatus
                     }
                 );
-                
                 this.lvItems.Items.Add(item);
             }
             this.lvItems.ListViewItemSorter = new LvComparer(0);
@@ -87,11 +76,9 @@ namespace Biblioteka
                         BookRental dbObject = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);
                         BookCopy bc = dbDataContext.BookCopies.Where(x => x.ID == dbObject.CopyID).First();
                         bc.Free = 1;
-                        dbObject.ReturnDate = (DateTime?)DateTime.Now;
+                        dbObject.ReturnDate = (DateTime?) DateTime.Now;
                         dbObject.status = 0;
                         dbDataContext.SubmitChanges();
-                        int elementIndex = BookListForm.items.FindIndex(x => x.SubItems[0].Text == item.SubItems[4].Text);
-                        BookListForm.items[elementIndex].SubItems[6].Text = (int.Parse(BookListForm.items[elementIndex].SubItems[6].Text) + 1).ToString();
                     }
                     catch(Exception exc)
                     {
@@ -101,7 +88,7 @@ namespace Biblioteka
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             clearList();
             if (selMode)
@@ -110,7 +97,6 @@ namespace Biblioteka
                 loadOrders(false);
                 button1.Enabled = false;
                 button3.Enabled = false;
-                button2.Text = "Pokaż nieoddane";
             }
             else
             {
@@ -118,7 +104,6 @@ namespace Biblioteka
                 loadOrders(true);
                 button1.Enabled = true;
                 button3.Enabled = true;
-                button2.Text = "Pokaż oddane";
             }
         }
 
@@ -130,34 +115,13 @@ namespace Biblioteka
             }
         }
 
-        private EmailAccountModel getModelFromXml()
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("Email.xml");
-            XmlNode hostNode = xmlDoc.DocumentElement.SelectSingleNode("data/host");
-            XmlNode loginNode = xmlDoc.DocumentElement.SelectSingleNode("data/login");
-            XmlNode passNode = xmlDoc.DocumentElement.SelectSingleNode("data/pass");
-            return new EmailAccountModel(hostNode.InnerText, loginNode.InnerText, loginNode.InnerText, passNode.InnerText);
-        }
-
-        public bool isXMLExists()       {
-            if (!File.Exists("Email.xml"))
-                return false;
-            return true;
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!isXMLExists())
-            {
-                new XmlCreator().Show();
-                return;
-            }
-            EmailAccountModel model = getModelFromXml();
+            EmailAccountModel model = new EmailAccountModel("smtp-mail.outlook.com", "libraryproject2019@outlook.com", "libraryproject2019", "*********");
             int counter = 0;
             foreach (ListViewItem item in lvItems.Items)
             {
-                if (item.Checked)
+                if(item.Checked)
                 {
                     int tmpID = int.Parse(item.Text.ToString());
                     BookRental borrowingData = dbDataContext.BookRentals.SingleOrDefault(x => x.ID == tmpID);

@@ -45,23 +45,5 @@ namespace Biblioteka
             string regExp = @"^([A-Za-z]+ {0,1})([A-Za-z]+ {0,1})*$";
             return Regex.IsMatch(name, regExp);
         }
-
-        public static bool validYear(string year)
-        {
-            string regExp = @"^([0-9]{1,4})$";
-            return Regex.IsMatch(year, regExp);
-        }
-
-        public static bool validCount(string count)
-        {
-            string regExp = @"^([0-9]{1,})$";
-            return Regex.IsMatch(count, regExp);
-        }
-
-        public static bool validTitle(string title)
-        {
-            string regExp = @"^([A-Za-z]+ {0,1})([A-Za-z]+ {0,1})*$";
-            return Regex.IsMatch(title, regExp);
-        }
     }
 }
